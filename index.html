@@ -3,121 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
     <style>
-        :root { --sand: #F5F0E8; --brown: #2E1F14; --gold: #C4A067; --gold-light: #E8D4A8; }
+        :root { --sand: #F5F0E8; --brown: #2E1F14; --gold: #C4A067; --gold-light: #E8D4A8; --white: #FFFFFF; }
         body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--brown); margin: 0; padding: 20px; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; }
-        #app { width: 100%; max-width: 450px; text-align: center; }
-        .screen { display: none; opacity: 1; } /* Simplificado para evitar bloqueos */
-        .active { display: block; }
+        #app { width: 100%; max-width: 480px; text-align: center; }
+        .screen { display: none; }
+        .active { display: block; animation: fadeIn 0.4s ease; }
         
-        .card { 
-            background: var(--brown); color: var(--gold-light); border-radius: 24px; 
-            padding: 40px 30px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
-            margin: 30px 0; position: relative; overflow: hidden;
-        }
-        .btn { 
-            width: 100%; padding: 20px; background: var(--brown); color: var(--gold-light); 
-            border: none; border-radius: 100px; font-weight: 600; cursor: pointer; 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 11px; transition: 0.2s;
-        }
-        .btn:active { transform: scale(0.98); }
-        input, select, textarea { 
-            width: 100%; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(46,31,20,0.1); 
-            border-radius: 12px; font-size: 16px; box-sizing: border-box; background: white; outline: none; font-family: inherit;
-        }
-        .label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px; text-align: left; }
+        /* Carnet Style */
+        .card { background: var(--brown); color: var(--gold-light); border-radius: 24px; padding: 35px; text-align: left; box-shadow: 0 25px 50px rgba(0,0,0,0.3); margin: 25px 0; position: relative; overflow: hidden; }
+        .card-avatar { width: 70px; height: 70px; border-radius: 50%; background: #4A3324; border: 1.5px solid var(--gold); overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Form Elements */
+        .label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin: 20px 0 8px; text-align: left; }
+        input, select { width: 100%; padding: 16px; border: 1px solid rgba(46,31,20,0.1); border-radius: 14px; font-size: 16px; box-sizing: border-box; background: white; outline: none; }
+        
+        .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
+        .chip { padding: 10px 18px; border: 1px solid rgba(46,31,20,0.1); border-radius: 100px; font-size: 13px; cursor: pointer; background: white; transition: 0.2s; }
+        .chip.selected { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
+
+        .btn { width: 100%; padding: 20px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-top: 20px; }
+        .btn-shop { background: var(--gold); color: var(--brown); margin-top: 15px; display: inline-block; text-decoration: none; text-align: center; }
+
+        /* Photo Upload */
+        .photo-zone { border: 1px dashed var(--gold); border-radius: 20px; padding: 30px; cursor: pointer; background: rgba(196,160,103,0.05); }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
 <div id="app">
     <div id="s1" class="screen active">
-        <h1 style="font-size: 42px; font-weight: 300; margin-bottom: 10px; letter-spacing: -2px;">club.aurum.</h1>
-        <p style="opacity: 0.6; font-size: 15px; margin-bottom: 40px;">Tu membresía para descubrir tu potencial oculto.</p>
-        <div class="card">
-            <div style="font-size: 9px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 30px;">MEMBER CARD</div>
-            <div style="font-size: 24px; font-weight: 300;">Tu nombre aquí</div>
-            <div style="margin-top:50px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px; opacity: 0.4;">
-                <span>AURUM · 2026</span>
-                <span style="letter-spacing: 1px;">SOLO LO ESENCIAL</span>
+        <h1 style="font-size: 38px; font-weight: 300; margin-bottom: 10px; letter-spacing: -2px;">club.aurum.</h1>
+        <p style="opacity:0.6; font-size:14px; margin-bottom:30px;">Iniciá tu infraestructura biológica.</p>
+        
+        <div class="photo-zone" onclick="document.getElementById('photoIn').click()">
+            <div id="preview-box" style="display:none; margin-bottom:15px;"><img id="photo-preview" style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);"></div>
+            <div id="upload-msg">
+                <span style="font-size:24px;">📷</span>
+                <p style="font-size:12px; margin:10px 0 0;">Subí tu foto para el carnet</p>
             </div>
+            <input type="file" id="photoIn" hidden accept="image/*" onchange="handlePhoto(this)">
         </div>
-        <button class="btn" onclick="go(2)">Empezar Perfil</button>
+
+        <span class="label">Nombre</span>
+        <input type="text" id="nameIn" placeholder="Ej: Tomás Llaneza">
+        
+        <button class="btn" onclick="go(2)">Continuar</button>
     </div>
 
     <div id="s2" class="screen">
-        <h2 style="font-weight: 400; margin-bottom: 30px;">Infraestructura Biológica</h2>
-        <span class="label">Identidad</span>
-        <input type="text" id="userName" placeholder="Nombre completo">
+        <h2 style="font-weight:400; margin-bottom:5px;">Tu Performance</h2>
+        <p style="font-size:13px; opacity:0.5; margin-bottom:25px;">Personalizá tu experiencia Aurum.</p>
+
         <span class="label">Objetivo</span>
-        <select id="userGoal">
-            <option value="Potenciar mente y cuerpo">Rendimiento Integral</option>
-            <option value="Descubrir potencial oculto">Desarrollo de Potencial</option>
-            <option value="Estilo de vida saludable">Bienestar y Salud</option>
-        </select>
-        <span class="label">Actividad Física</span>
-        <input type="text" id="userSport" placeholder="Ej: CrossFit, Running, Yoga">
-        <button class="btn" onclick="finish()">Generar Rutina Aurum</button>
+        <div class="chip-group" id="goal-group">
+            <div class="chip" onclick="selectChip(this, 'goal')">Ganar músculo</div>
+            <div class="chip" onclick="selectChip(this, 'goal')">Rendir más</div>
+            <div class="chip" onclick="selectChip(this, 'goal')">Bienestar</div>
+            <div class="chip" onclick="selectChip(this, 'goal')">Foco Mental</div>
+        </div>
+
+        <span class="label">Deporte</span>
+        <input type="text" id="sportIn" placeholder="Ej: CrossFit, Running, Yoga">
+
+        <span class="label">Frecuencia Semanal</span>
+        <div class="chip-group" id="freq-group">
+            <div class="chip" onclick="selectChip(this, 'freq')">1-2 veces</div>
+            <div class="chip" onclick="selectChip(this, 'freq')">3-4 veces</div>
+            <div class="chip" onclick="selectChip(this, 'freq')">5+ veces</div>
+        </div>
+
+        <button class="btn" onclick="finish()">Generar Carnet</button>
     </div>
 
     <div id="s3" class="screen">
-        <h2 style="font-weight: 400; margin-bottom: 30px;">Tu Rutina Aurum</h2>
+        <h2 style="font-weight:400; margin-bottom:20px;">Acceso Concedido</h2>
         <div id="finalCard"></div>
-        <div style="background:white; padding:30px; border-radius:20px; text-align:left; border:1px solid rgba(0,0,0,0.03); margin-top:20px;">
-            <div id="routine" style="font-size: 14px; line-height: 1.7; color: #4A3324;">Inspirando a descubrir lo esencial...</div>
+        
+        <div id="routine-box" style="background:white; padding:30px; border-radius:24px; text-align:left; border:1px solid rgba(0,0,0,0.03); margin-top:20px;">
+            <div id="coach-header" style="display:flex; align-items:center; gap:12px; margin-bottom:15px;">
+                <div id="coach-img" style="width:40px; height:40px; border-radius:50%; background:#DDD;"></div>
+                <div>
+                    <div id="coach-name" style="font-size:14px; font-weight:700;">Coach Name</div>
+                    <div style="font-size:10px; opacity:0.5; text-transform:uppercase;">Aurum Staff</div>
+                </div>
+            </div>
+            <div id="routine-content" style="font-size:14px; line-height:1.7; color:#4A3324;"></div>
+            
+            <a href="#" class="btn btn-shop">Completar mi kit Aurum →</a>
         </div>
-        <button class="btn" style="margin-top:30px; background:none; border:1px solid var(--brown); color:var(--brown);" onclick="location.reload()">Nuevo Perfil</button>
+        
+        <button onclick="location.reload()" style="margin-top:30px; background:none; border:none; color:var(--brown); text-decoration:underline; font-size:11px; cursor:pointer;">Reiniciar Perfil</button>
     </div>
 </div>
 
 <script>
-    // Navegación Blindada para iFrame
-    function go(n) {
-        document.querySelectorAll('.screen').forEach(s => {
-            s.classList.remove('active');
-            s.style.display = 'none';
-        });
-        const next = document.getElementById('s' + n);
-        if (next) {
-            next.style.display = 'block';
-            next.classList.add('active');
+    let userData = { photo: null, goal: '', freq: '' };
+
+    function handlePhoto(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                userData.photo = e.target.result;
+                document.getElementById('photo-preview').src = e.target.result;
+                document.getElementById('preview-box').style.display = 'block';
+                document.getElementById('upload-msg').style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
         }
     }
 
-    const finish = () => {
-        const name = document.getElementById('userName').value || 'Miembro';
-        const goal = document.getElementById('userGoal').value;
-        const sport = document.getElementById('userSport').value || 'Vida Activa';
+    function selectChip(el, type) {
+        el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        userData[type] = el.innerText;
+    }
+
+    function go(n) {
+        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+        document.getElementById('s' + n).classList.add('active');
+        window.scrollTo(0,0);
+    }
+
+    function finish() {
+        const name = document.getElementById('nameIn').value || 'Miembro';
+        const sport = document.getElementById('sportIn').value || 'Atleta';
         go(3);
+
+        // Lógica de Entrenadores Argentinos
+        const coaches = {
+            'Ganar músculo': { name: 'El Colo', bio: 'Especialista en potencia. Vamos a buscar ese impacto nutritivo real.', img: 'https://i.pravatar.cc/100?u=colo' },
+            'Rendir más': { name: 'Martina', bio: 'Coach de endurance. En Aurum buscamos lo esencial para que no frenes.', img: 'https://i.pravatar.cc/100?u=martina' },
+            'Bienestar': { name: 'Santi', bio: 'Experto en balance. Menos es más, tanto en el mat como en el tarro.', img: 'https://i.pravatar.cc/100?u=santi' },
+            'Foco Mental': { name: 'Santi', bio: 'Experto en balance. Menos es más, tanto en el mat como en el tarro.', img: 'https://i.pravatar.cc/100?u=santi' }
+        };
+
+        const coach = coaches[userData.goal] || coaches['Bienestar'];
         
         document.getElementById('finalCard').innerHTML = `
             <div class="card">
-                <div style="font-size: 9px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 20px;">OFFICIAL MEMBER</div>
-                <div style="font-size: 26px; font-weight: 300; text-transform: lowercase;">${name}</div>
-                <div style="margin-top:40px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px;">
-                    <span style="opacity: 0.3;">ID: AUR-${Math.floor(Math.random()*9000+1000)}</span>
-                    <span style="color:var(--gold)">SOLO LO ESENCIAL</span>
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                    <div class="card-avatar">${userData.photo ? `<img src="${userData.photo}">` : name[0]}</div>
+                    <div style="font-size:9px; border:1px solid; padding:4px 10px; border-radius:100px; opacity:0.4;">${userData.goal.toUpperCase()}</div>
+                </div>
+                <div style="margin-top:25px;">
+                    <div style="font-size:24px; font-weight:300; text-transform:lowercase;">${name}</div>
+                    <div style="font-size:11px; opacity:0.5; margin-top:4px;">${sport} / ${userData.freq}</div>
+                </div>
+                <div style="margin-top:30px; display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3;">
+                    <span>ID: AUR-${Math.floor(Math.random()*9000+1000)}</span>
+                    <span>SOLO LO ESENCIAL</span>
                 </div>
             </div>
         `;
 
-        setTimeout(() => {
-            let recomendacion = "";
-            if (goal.includes("Potenciar")) {
-                recomendacion = `<strong>Estrategia de Rendimiento para ${name.split(' ')[0]}:</strong><br><br>
-                • <strong>Creatine Monohydrate:</strong> Esencial para potenciar tu fuerza y descubrir tu potencial oculto[cite: 3, 17].<br>
-                • <strong>Natural Protein Blend (Chocolate):</strong> Recuperación limpia preservando solo lo que tiene mayor impacto nutritivo[cite: 6, 9].<br>
-                • <strong>Hydration Complex (Maracuyá):</strong> Mantené la pureza de tu hidratación con fórmulas que priorizan lo esencial[cite: 5, 26, 30].`;
-            } else {
-                recomendacion = `<strong>Estrategia de Bienestar para ${name.split(' ')[0]}:</strong><br><br>
-                • <strong>Greens & Superfoods:</strong> Nutrición esencial para inspirarte a adoptar un estilo de vida más saludable[cite: 3, 20].<br>
-                • <strong>Plant-based Protein (Vainilla):</strong> Proteína limpia y efectiva para quienes buscan simplicidad[cite: 5, 13].<br>
-                • <strong>Hydration Complex:</strong> Hidratación inteligente para potenciar el cuerpo y la mente[cite: 3, 26].`;
-            }
-            document.getElementById('routine').innerHTML = recomendacion + "<br><br><em>Solo lo esencial para tu impacto nutritivo.</em>";
-        }, 300);
-    };
+        document.getElementById('coach-name').innerText = coach.name;
+        document.getElementById('coach-img').innerHTML = `<img src="${coach.img}" style="width:100%; border-radius:50%;">`;
+        document.getElementById('routine-content').innerHTML = `
+            <strong>${coach.name}:</strong> "${coach.bio}"<br><br>
+            Para tu plan sugerimos:<br>
+            • <strong>Creatine Monohydrate:</strong> Esencial para tu fuerza.<br>
+            • <strong>Hydration Complex (Maracuyá):</strong> Durante tu entreno de ${sport}.<br>
+            • <strong>Natural Protein Blend:</strong> Solo lo esencial para recuperar.<br><br>
+            <em>Dale masa, nos vemos en el club.</em>
+        `;
+    }
 </script>
+
 </body>
 </html>
