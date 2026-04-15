@@ -6,69 +6,227 @@
 <title>club.aurum.</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-/* CSS ORIGINAL PRESERVADO Y OPTIMIZADO */
+/* CSS BASE PROFESIONAL */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
-  --gold-light: #E8D4A8; --white: #FDFCFA; --text: #2A1A0E; --text-muted: #7A6045;
-  --border: rgba(46,31,20,0.1); --border-gold: rgba(196,160,103,0.35);
+  --gold-light: #E8D4A8; --white: #FDFCFA; --text: #2A1A0E; --border: rgba(46,31,20,0.1);
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
 /* NAVEGACIÓN */
 nav { padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
 .nav-logo { font-weight: 300; font-size: 20px; color: var(--gold-light); }
-.nav-cta { padding: 8px 20px; background: transparent; border: 0.5px solid rgba(196,160,103,0.4); border-radius: 100px; color: var(--gold-light); font-size: 12px; cursor: pointer; letter-spacing: 0.04em; }
-
-/* SCREENS */
-.screen { display: none; }
-.screen.active { display: block; }
-.section-wrap { max-width: 760px; margin: 0 auto; padding: 60px 24px; }
+.nav-cta { padding: 8px 20px; background: transparent; border: 0.5px solid rgba(196,160,103,0.4); border-radius: 100px; color: var(--gold-light); font-size: 12px; cursor: pointer; }
 
 /* HERO & CARD */
-.hero { background: var(--brown); padding: 60px 24px 0; text-align: center; overflow: hidden; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--gold-light); line-height: 1.1; margin-bottom: 10px; }
+.hero { background: var(--brown); padding: 80px 48px 0; text-align: center; overflow: hidden; position: relative; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 8vw, 62px); color: var(--gold-light); line-height: 1.1; margin-bottom: 10px; }
 .hero h1 em { font-style: italic; color: var(--gold); }
-.membership-card { width: 360px; max-width: 90vw; background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 50%, #2E1F14 100%); border-radius: 20px; padding: 30px; margin: 0 auto -40px; box-shadow: 0 30px 60px rgba(0,0,0,0.4); text-align: left; position: relative; z-index: 10; transform: translateY(20px); }
+.membership-card { width: 380px; max-width: 90vw; background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 50%, #2E1F14 100%); border-radius: 20px; padding: 32px; margin: 0 auto -50px; box-shadow: 0 40px 80px rgba(0,0,0,0.4); text-align: left; position: relative; z-index: 10; transform: translateY(20px); }
+
+/* SCREENS */
+.screen { display: none; width: 100%; }
+.screen.active { display: block !important; }
 
 /* FORMS */
-.steps-bar { display: flex; align-items: center; justify-content: center; margin-bottom: 40px; }
-.step-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--sand-mid); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; }
-.step-dot.active { background: var(--brown); color: var(--gold-light); }
-.step-dot.done { background: var(--gold); color: var(--brown); }
-.step-line { width: 40px; height: 0.5px; background: var(--border); }
-.step-line.done { background: var(--gold); }
+.section-wrap { max-width: 600px; margin: 0 auto; padding: 80px 24px; }
+.form-block { background: var(--white); border: 1.5px solid var(--border); border-radius: 24px; padding: 40px; margin-bottom: 20px; }
+.field { margin-bottom: 20px; text-align: left; }
+.field label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); margin-bottom: 8px; }
+input, select, textarea { width: 100%; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 14px; outline: none; }
 
-.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 35px; max-width: 550px; margin: 0 auto 15px; }
-.field { margin-bottom: 18px; text-align: left; }
-.field label { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-input, select, textarea { width: 100%; padding: 12px 15px; border: 0.5px solid var(--border); border-radius: 10px; background: var(--sand); font-family: inherit; font-size: 14px; outline: none; }
-
-.chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 5px; }
-.chip { padding: 8px 16px; border: 0.5px solid var(--border); border-radius: 100px; font-size: 12px; cursor: pointer; background: var(--sand); transition: 0.2s; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+.chip { padding: 10px 20px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; cursor: pointer; background: var(--white); transition: 0.3s; }
 .chip.selected { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
 
-.photo-upload { border: 1px dashed var(--border-gold); border-radius: 15px; padding: 30px; text-align: center; cursor: pointer; background: var(--gold-pale); }
-#photo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin: 0 auto 10px; display: none; }
+.photo-upload { border: 1px dashed var(--gold); border-radius: 20px; padding: 40px; text-align: center; cursor: pointer; background: rgba(196,160,103,0.05); }
+#photo-preview { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin: 0 auto 15px; display: none; }
 
-.btn-primary { width: 100%; padding: 16px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 500; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
-.btn-secondary { width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border); border-radius: 100px; font-size: 12px; color: var(--text-muted); margin-top: 10px; cursor: pointer; }
+.btn-primary { width: 100%; padding: 18px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; }
 
-/* RESULT SCREEN */
+/* RESULT */
 .carnet-screen { background: var(--brown); min-height: 100vh; padding: 60px 24px; text-align: center; }
-.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 24px; padding: 40px; border: 0.5px solid rgba(196,160,103,0.25); max-width: 500px; margin: 0 auto 30px; text-align: left; }
-.rec-card { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(196,160,103,0.15); border-radius: 20px; padding: 30px; max-width: 500px; margin: 0 auto; text-align: left; color: var(--gold-light); }
-.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 25px; }
+.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 24px; padding: 40px; border: 1px solid rgba(196,160,103,0.2); max-width: 500px; margin: 0 auto 30px; text-align: left; }
+.rec-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(196,160,103,0.1); border-radius: 24px; padding: 35px; max-width: 550px; margin: 0 auto; text-align: left; color: var(--gold-light); }
+.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 25px; text-decoration: none; display: block; text-align: center; }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-logo"><strong>club</strong>.aurum.</div>
-  <button class="nav-cta" onclick="showScreen('form-screen')">Unirme gratis</button>
+  <button class="nav-cta" onclick="forceShow('form-screen')">Unirme gratis</button>
 </nav>
 
 <div id="landing-screen" class="screen active">
   <div class="hero">
     <h1><em>club</em>.aurum.</h1>
-    <p class="hero-sub
+    <p class="hero-sub">Tu infraestructura biológica personalizada con solo lo esencial[cite: 31].</p>
+    <div class="membership-card">
+        <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
+          <div style="color:var(--gold-light); font-size:14px;"><strong>club</strong>.aurum.</div>
+          <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:50px; color:var(--gold);">MEMBER</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:15px; margin:30px 0;">
+            <div style="width:60px; height:60px; border-radius:50%; background:#4A2E1A; border:1px solid var(--gold); display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px;">A</div>
+            <div style="color:var(--gold-light); font-size:20px; font-weight:300;">Tu nombre aquí</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light);">
+          <span>AURUM · 2026</span><span>SOLO LO ESENCIAL [cite: 4]</span>
+        </div>
+    </div>
+  </div>
+  <div style="padding:120px 24px; background:white; text-align:center;">
+    <button class="btn-primary" style="max-width:350px;" onclick="forceShow('form-screen')">Crear mi carnet gratis →</button>
+  </div>
+</div>
+
+<div id="form-screen" class="screen">
+  <div class="section-wrap">
+    <div id="form-content" class="form-block">
+      <h2 style="font-family:'Playfair Display',serif; font-size:32px; margin-bottom:10px;">Perfil de Miembro</h2>
+      <p style="font-size:14px; opacity:0.5; margin-bottom:35px;">Educamos e inspiramos para descubrir tu potencial oculto[cite: 3].</p>
+      
+      <div class="field">
+        <div class="photo-upload" onclick="document.getElementById('photo-in').click()">
+          <img id="photo-preview" src="">
+          <div id="photo-msg">📷 <br> <span style="font-size:12px;">Cargar foto para carnet oficial</span></div>
+          <input type="file" id="photo-in" hidden accept="image/*" onchange="handleImage(this)">
+        </div>
+      </div>
+
+      <div class="field"><label>Nombre Completo</label><input type="text" id="nombre" placeholder="Ej: Tomás Llaneza"></div>
+      <div class="field"><label>Deporte o Actividad</label><input type="text" id="deporte" placeholder="Ej: CrossFit, Running, Yoga"></div>
+      
+      <div class="field">
+        <label>Objetivo Principal</label>
+        <div class="chip-group">
+          <div class="chip" onclick="selectChip(this, 'goal')">Ganar músculo</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Rendir más</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Bienestar</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Foco Mental</div>
+        </div>
+      </div>
+      
+      <button class="btn-primary" style="margin-top:20px;" onclick="generarCarnet()">Finalizar y Ver Rutina →</button>
+    </div>
+  </div>
+</div>
+
+<div id="result-screen" class="screen">
+  <div class="carnet-screen">
+    <h2 style="color:var(--gold-light); font-family:'Playfair Display',serif; margin-bottom:40px; font-weight:400;">Membresía club.aurum.</h2>
+    <div id="card-render" class="big-card"></div>
+
+    <div class="rec-card">
+      <div style="font-family:'Playfair Display',serif; font-size:24px; margin-bottom:20px; color:var(--gold-light);">Tu Rutina Esencial</div>
+      <div id="routine-text" style="font-size:14px; line-height:1.8; font-weight:300;"></div>
+      
+      <div id="coach-opt" style="margin-top:30px; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:none;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:15px;">
+            <div id="coach-img" style="width:40px; height:40px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; color:var(--brown); font-weight:700;">A</div>
+            <div><div id="coach-name" style="font-weight:600; font-size:14px;"></div><div style="font-size:10px; opacity:0.5;">Coach Argentino | Aurum Staff</div></div>
+        </div>
+        <div id="coach-msg" style="font-style:italic; font-size:13px; opacity:0.8;"></div>
+      </div>
+
+      <a href="https://www.aurumarg.com" target="_blank" class="btn-primary btn-shop">Adquirir mi rutina esencial →</a>
+    </div>
+
+    <button onclick="location.reload()" style="margin-top:40px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:12px;">Reiniciar Perfil</button>
+  </div>
+</div>
+
+<script>
+let state = { photo: null, goal: '' };
+
+// Función de navegación blindada para Tienda Nube
+function forceShow(id) {
+  const screens = document.querySelectorAll('.screen');
+  screens.forEach(s => {
+    s.style.display = 'none';
+    s.classList.remove('active');
+  });
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.setProperty('display', 'block', 'important');
+    target.classList.add('active');
+  }
+  window.scrollTo(0,0);
+}
+
+function handleImage(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      state.photo = e.target.result;
+      document.getElementById('photo-preview').src = e.target.result;
+      document.getElementById('photo-preview').style.display = 'block';
+      document.getElementById('photo-msg').style.display = 'none';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function selectChip(el, type) {
+  el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.goal = el.innerText;
+}
+
+function generarCarnet() {
+  const nombre = document.getElementById('nombre').value || "Miembro";
+  const deporte = document.getElementById('deporte').value || "Atleta Integral";
+  forceShow('result-screen');
+
+  document.getElementById('card-render').innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+      <div style="font-size:22px; color:var(--gold-light);"><strong>club</strong>.aurum.</div>
+      <div style="font-size:10px; color:var(--gold); border:1px solid; padding:4px 12px; border-radius:100px;">${state.goal.toUpperCase() || 'MEMBER'}</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:24px; margin:40px 0;">
+      <div style="width:80px; height:80px; border-radius:50%; border:2px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:32px;">
+        ${state.photo ? `<img src="${state.photo}" style="width:100%; height:100%; object-fit:cover;">` : nombre[0]}
+      </div>
+      <div>
+        <div style="font-size:28px; color:var(--gold-light); text-transform:lowercase;">${nombre}</div>
+        <div style="font-size:13px; opacity:0.5; color:var(--gold-light);">${deporte}</div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; color:rgba(255,255,255,0.2);">
+      <span>ID: AUR-2026</span><span>SOLO LO ESENCIAL [cite: 31]</span>
+    </div>
+  `;
+
+  // Lógica de Productos Basada en el Catálogo [cite: 9, 13, 17, 20, 26]
+  let routine = `Hola <strong>${nombre}</strong>. Para potenciar tu rendimiento en <em>${deporte}</em> sin aditivos innecesarios[cite: 6], esta es tu sinergia Aurum:<br><br>`;
+  
+  if(state.goal === 'Ganar músculo') {
+    routine += `• <strong>Natural Protein Blend (Chocolate):</strong> Post-entreno. <em>¿Por qué?</em> Máximo impacto nutritivo para reparar fibras musculares con ingredientes limpios[cite: 9, 5].<br>
+                • <strong>Creatine Monohydrate:</strong> 5g diarios. <em>¿Por qué?</em> Pureza absoluta para maximizar tu fuerza explosiva[cite: 17].`;
+  } else if(state.goal === 'Rendir más') {
+    routine += `• <strong>Hydration Complex (Maracuyá):</strong> Durante el entrenamiento. <em>¿Por qué?</em> Reposición de electrolitos esencial para mantener la intensidad sin químicos artificiales[cite: 26, 6].<br>
+                • <strong>Creatine Monohydrate:</strong> Potencia biológica para tus sesiones más exigentes[cite: 17].`;
+  } else {
+    routine += `• <strong>Greens & Superfoods (Citricor):</strong> Con el desayuno. <em>¿Por qué?</em> Micro-nutrición pura para elevar tu energía y bienestar diario[cite: 20, 5].<br>
+                • <strong>Plant-based Protein:</strong> Una opción efectiva y simple para tu estructura biológica diaria[cite: 13, 4].`;
+  }
+  
+  document.getElementById('routine-text').innerHTML = routine;
+
+  // Entrenadores Opcionales (Staff Realista)
+  const coaches = {
+    'Ganar músculo': { n: 'Santi "El Colo"', m: 'Démosle masa a esa base muscular. En Aurum no hay rellenos, solo resultados reales.' },
+    'Rendir más': { n: 'Martina', m: 'La constancia es tu aliada silenciosa. Esta rutina es para que tu motor no frene nunca.' },
+    'Bienestar': { n: 'Fran', m: 'Menos ruido, más pureza. Cuidar la infraestructura es el primer paso para descubrir tu potencial.' }
+  };
+  const coach = coaches[state.goal] || coaches['Bienestar'];
+  document.getElementById('coach-opt').style.display = 'block';
+  document.getElementById('coach-name').innerText = coach.n;
+  document.getElementById('coach-img').innerText = coach.n[0];
+  document.getElementById('coach-msg').innerText = `"${coach.m}"`;
+}
+</script>
+</body>
+</html>
