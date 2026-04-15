@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>club.aurum. | Optimización Biológica</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<title>club.aurum | Optimización Biológica</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-/* SISTEMA DE DISEÑO AURUM - SANS SERIF */
+/* SISTEMA DE DISEÑO AURUM */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
@@ -14,9 +14,13 @@
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
+/* BRANDING STYLE: club (thin) aurum (bold) */
+.brand { font-weight: 100; letter-spacing: -0.02em; }
+.brand strong { font-weight: 700; }
+
 /* NAVEGACIÓN */
 nav { padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
-.nav-logo { font-weight: 500; font-size: 20px; color: var(--gold-light); letter-spacing: -0.02em; }
+.nav-logo { font-size: 20px; color: var(--gold-light); }
 .nav-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(196,160,103,0.6); }
 
 /* ESTRUCTURA */
@@ -26,7 +30,7 @@ nav { padding: 22px 48px; display: flex; align-items: center; justify-content: s
 
 /* HERO Y CARNET */
 .hero { background: var(--brown); padding: 60px 24px 80px; text-align: center; }
-.hero h1 { font-size: clamp(40px, 8vw, 64px); color: var(--gold-light); line-height: 1; margin-bottom: 15px; font-weight: 500; letter-spacing: -0.03em; }
+.hero h1 { font-size: clamp(40px, 8vw, 64px); color: var(--gold-light); line-height: 1; margin-bottom: 15px; letter-spacing: -0.03em; }
 .hero-sub { color: rgba(232,212,168,0.7); font-size: 16px; font-weight: 300; max-width: 450px; margin: 0 auto 50px; line-height: 1.6; }
 
 .membership-card { 
@@ -61,17 +65,17 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
 <body>
 
 <nav>
-  <div class="nav-logo">club.aurum.</div>
+  <div class="nav-logo brand">club<strong>aurum</strong></div>
   <div class="nav-tag">Membership</div>
 </nav>
 
 <div id="landing-screen" class="screen active">
   <div class="hero">
-    <h1>club.aurum.</h1>
-    <p class="hero-sub">Potenciamos el cuerpo y la mente con lo esencial para descubrir tu potencial oculto.</p>
+    <h1 class="brand">club<strong>aurum</strong></h1>
+    <p class="hero-sub">Potenciamos el cuerpo y la mente con lo esencial para descubrir tu potencial oculto[cite: 3, 4].</p>
     <div class="membership-card">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
-        <div style="color:var(--gold-light); font-size:18px; font-weight:500;">club.aurum.</div>
+        <div class="brand" style="color:var(--gold-light); font-size:18px;">club<strong>aurum</strong></div>
         <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6;">MEMBER</div>
       </div>
       <div style="display:flex; align-items:center; gap:25px; margin-bottom:40px;">
@@ -79,7 +83,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
         <div style="color:var(--gold-light); font-size:20px; font-weight:400;">Tu nombre aquí</div>
       </div>
       <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light);">
-        <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
+        <span>AUR-00001</span><span>SOLO LO ESENCIAL [cite: 4]</span>
       </div>
     </div>
   </div>
@@ -157,7 +161,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
   <div style="background:var(--brown); min-height:100vh; padding:60px 24px; text-align:center;">
     <div class="big-card">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div style="color:var(--gold-light); font-size:22px; font-weight:500;">club.aurum.</div>
+        <div class="brand" style="color:var(--gold-light); font-size:22px;">club<strong>aurum</strong></div>
         <div style="font-size:10px; border:1px solid; padding:5px 15px; border-radius:100px; color:var(--gold);">MEMBER</div>
       </div>
       <div style="display:flex; align-items:center; gap:25px; margin:45px 0;">
@@ -169,7 +173,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
       </div>
       <div style="height:0.5px; background:rgba(196,160,103,0.15); margin-bottom:25px;"></div>
       <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; opacity:0.3; color:var(--gold-light);">
-        <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
+        <span>AUR-00001</span><span>SOLO LO ESENCIAL [cite: 4]</span>
       </div>
     </div>
 
@@ -224,15 +228,15 @@ function generarCarnet() {
   let protocolo = `Hola <strong>${nombre}</strong>. Basados en tus parámetros técnicos, diseñamos este protocolo biológico enfocado en la biodisponibilidad molecular:<br><br>`;
   
   if(objetivos.some(o => o.includes('músculo') || o.includes('Rendir'))) {
-    protocolo += `• <strong>Natural Protein Blend:</strong> Maximiza la síntesis proteica miofibrilar mediante una absorción limpia sin interferencia de aditivos[cite: 6, 9].<br>
+    protocolo += `• <strong>Natural Protein Blend:</strong> Maximiza la síntesis proteica miofibrilar mediante una absorción limpia sin interferencia de aditivos artificiales[cite: 6, 9].<br>
                   • <strong>Creatine Monohydrate:</strong> Optimiza la resíntesis de ATP celular para incrementar el umbral de potencia mecánica[cite: 17].<br>
                   • <strong>Hydration Complex:</strong> Restablece el equilibrio osmótico intra y extracelular durante el esfuerzo intenso[cite: 26].`;
   } else {
     protocolo += `• <strong>Greens & Superfoods:</strong> Aporta una densidad crítica de micronutrientes para estabilizar funciones metabólicas diarias[cite: 20].<br>
-                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento integral de la infraestructura biológica saludable[cite: 13, 3].`;
+                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento integral de la infraestructura biológica saludable[cite: 5, 13].`;
   }
   
-  document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial.</em>`;
+  document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial[cite: 3, 4].</em>`;
 }
 </script>
 </body>
