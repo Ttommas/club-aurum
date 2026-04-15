@@ -75,12 +75,12 @@
     // CATÁLOGO OFICIAL BASADO EN PRESENTACIÓN DE MARCA
     const CATALOGO_AURUM = `
     PRODUCTOS:
-    - Natural Protein Blend (Chocolate/Vainilla): Alta calidad, post-entrenamiento.
-    - Plant-based Protein (Chocolate/Vainilla): Proteína vegetal pura.
-    - Creatine Monohydrate (Natural): 100% pura para fuerza y potencia.
-    - Greens & Superfoods (Frutos Rojos/Citricor): Nutrientes esenciales diarios.
-    - Hydration Complex (Frambuesa/Maracuyá): Electrolitos sin aditivos artificiales.
-    MISIÓN: Educar e inspirar a descubrir el potencial oculto con solo lo esencial.
+    - Natural Protein Blend (Chocolate/Vainilla): Alta calidad, post-entrenamiento[cite: 9, 13].
+    - Plant-based Protein (Chocolate/Vainilla): Proteína vegetal pura[cite: 14, 15].
+    - Creatine Monohydrate (Natural): 100% pura para fuerza y potencia[cite: 17, 18].
+    - Greens & Superfoods (Frutos Rojos/Citricor): Nutrientes esenciales diarios[cite: 20, 21, 24].
+    - Hydration Complex (Frambuesa/Maracuyá): Electrolitos sin aditivos artificiales[cite: 26, 27, 30].
+    MISIÓN: Educar e inspirar a descubrir el potencial oculto con solo lo esencial[cite: 3, 4].
     `;
 
     const go = (n) => {
@@ -111,8 +111,23 @@
             </div>
         \`;
 
-        // Simulación de recomendación basada en el catálogo
+        // Simulación de recomendación basada en el catálogo 
         setTimeout(() => {
             let recomendacion = "";
             if (goal.includes("Potenciar")) {
                 recomendacion = \`<strong>Estrategia de Rendimiento para \${name.split(' ')[0]}:</strong><br><br>
+                • <strong>Creatine Monohydrate:</strong> Esencial para potenciar tu fuerza en \${sport}[cite: 17].<br>
+                • <strong>Natural Protein Blend:</strong> Recuperación limpia después de cada sesión[cite: 11].<br>
+                • <strong>Hydration Complex:</strong> Mantené la pureza de tu hidratación durante el esfuerzo[cite: 26].\`;
+            } else {
+                recomendacion = \`<strong>Estrategia de Bienestar para \${name.split(' ')[0]}:</strong><br><br>
+                • <strong>Greens & Superfoods:</strong> Nutrición esencial para descubrir tu potencial diario[cite: 20].<br>
+                • <strong>Plant-based Protein:</strong> Proteína limpia para potenciar cuerpo y mente con simplicidad[cite: 12].<br>
+                • <strong>Hydration Complex:</strong> Hidratación inteligente para tu estilo de vida saludable[cite: 29].\`;
+            }
+            document.getElementById('routine').innerHTML = recomendacion + "<br><br><em>Solo lo esencial para tu impacto nutritivo.</em>";
+        }, 1000);
+    };
+</script>
+</body>
+</html>
