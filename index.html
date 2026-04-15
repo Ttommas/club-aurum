@@ -56,4 +56,248 @@ nav { padding: 22px 48px; display: flex; align-items: center; justify-content: s
 .field { margin-bottom: 20px; }
 .field label { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 input, select, textarea { width: 100%; padding: 13px 16px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text); outline: none; transition: 0.2s; }
-input:focus, select:focus {
+input:focus, select:focus { border-color: var(--gold); background: var(--white); }
+
+.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 9px 18px; border: 0.5px solid var(--border); border-radius: 100px; font-size: 13px; color: var(--text-muted); background: var(--sand); cursor: pointer; transition: 0.18s; }
+.chip.selected { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
+
+.photo-upload { border: 1px dashed var(--border-gold); border-radius: 16px; padding: 36px; text-align: center; cursor: pointer; background: var(--gold-pale); position: relative; }
+#photo-preview { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); margin: 0 auto 12px; display: none; }
+
+/* CARNET Y RESULTADOS */
+.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 24px; padding: 48px; border: 0.5px solid rgba(196,160,103,0.25); box-shadow: 0 60px 120px rgba(0,0,0,0.5); margin-bottom: 24px; text-align: left; }
+.big-card-avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid rgba(196,160,103,0.4); background: var(--brown-mid); overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--gold); }
+.big-card-name { font-size: 28px; font-weight: 400; color: var(--gold-light); margin-top: 15px; text-transform: lowercase; }
+
+.rec-card { background: rgba(255,255,255,0.04); border: 0.5px solid rgba(196,160,103,0.15); border-radius: 16px; padding: 28px; margin-bottom: 12px; text-align: left; }
+.rec-card-title { font-size: 16px; font-weight: 500; color: var(--gold-light); margin-bottom: 15px; }
+.rec-card-body { font-size: 13px; color: rgba(196,160,103,0.55); line-height: 1.7; font-weight: 300; }
+
+.coach-box { background: white; padding: 30px; border-radius: 20px; margin-top: 20px; text-align: left; color: var(--brown); }
+.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; border: none; padding: 20px; border-radius: 50px; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; font-size: 12px; }
+
+.btn-primary { width: 100%; padding: 16px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 500; cursor: pointer; transition: 0.2s; }
+.btn-primary:hover { background: var(--brown-mid); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><strong>club</strong>.aurum.</div>
+  <div class="nav-tag">Membership</div>
+  <button class="nav-cta" onclick="showScreen('form-screen')">Unirme gratis</button>
+</nav>
+
+<div id="landing-screen" class="screen active">
+  <div class="hero">
+    <div class="hero-eyebrow">Bienvenido al club</div>
+    <h1><em>club</em>.aurum.</h1>
+    <p class="hero-sub">Tu membresía gratuita para acceder a rutinas de élite, recomendaciones basadas en la pureza y beneficios exclusivos.</p>
+    
+    <div class="card-preview">
+      <div class="membership-card" id="preview-card">
+        <div class="card-header">
+          <div class="card-logo"><strong>club</strong>.aurum.</div>
+          <div class="card-tier">Member</div>
+        </div>
+        <div class="card-avatar-area">
+          <div class="card-avatar">A</div>
+          <div>
+            <div class="card-user-name">Tu nombre aquí</div>
+            <div class="card-user-sub">Miembro desde 2026</div>
+          </div>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-bottom">
+          <div><div class="card-id">AURUM · 0001</div><div class="card-sport">Performance · Solo lo esencial</div></div>
+          <div class="card-dots"><div class="card-dot"></div><div class="card-dot"></div><div class="card-dot"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: var(--white); padding: 100px 48px; text-align: center;">
+    <button class="btn-primary" style="max-width:350px;" onclick="showScreen('form-screen')">Crear mi carnet gratis →</button>
+  </div>
+</div>
+
+<div id="form-screen" class="screen">
+  <div class="section-wrap narrow">
+    <div class="steps-bar">
+      <div class="step-dot active" id="dot-1">1</div><div class="step-line" id="line-1"></div>
+      <div class="step-dot" id="dot-2">2</div><div class="step-line" id="line-2"></div>
+      <div class="step-dot" id="dot-3">3</div>
+    </div>
+
+    <div id="step-1" class="form-block">
+      <h2>Tu perfil</h2>
+      <p class="form-sub">La base de tu infraestructura biológica.</p>
+      
+      <div class="field">
+        <div class="photo-upload" onclick="document.getElementById('foto-in').click()">
+          <img id="photo-preview" src="">
+          <div id="photo-msg">📷 <br> <span style="font-size:12px;">Subí tu foto para el carnet</span></div>
+          <input type="file" id="foto-in" hidden accept="image/*" onchange="previewPhoto(this)">
+        </div>
+      </div>
+
+      <div class="grid-2" style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+        <div class="field"><label>Nombre</label><input type="text" id="nombre" placeholder="Tomás"></div>
+        <div class="field"><label>Apellido</label><input type="text" id="apellido" placeholder="Llaneza"></div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(2)">Continuar</button>
+    </div>
+
+    <div id="step-2" class="form-block" style="display:none;">
+      <h2>Tu actividad</h2>
+      <p class="form-sub">Para potenciar tu cuerpo y mente.</p>
+      
+      <div class="field">
+        <label>Deporte Principal</label>
+        <input type="text" id="deporte" placeholder="CrossFit, Running, Yoga...">
+      </div>
+
+      <div class="field">
+        <label>Objetivo Aurum</label>
+        <div class="chip-group" id="objetivos">
+          <div class="chip" onclick="selectChip(this, 'goal')">Ganar músculo</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Rendir más</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Bienestar</div>
+          <div class="chip" onclick="selectChip(this, 'goal')">Foco Mental</div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="goToStep(3)">Continuar</button>
+    </div>
+
+    <div id="step-3" class="form-block" style="display:none;">
+      <h2>Contexto</h2>
+      <p class="form-sub">Solo lo esencial para tu impacto nutritivo.</p>
+      
+      <div class="field">
+        <label>¿Tomás suplementos?</label>
+        <div class="chip-group" id="supl-actuales">
+          <div class="chip" onclick="selectChip(this, 'supl')">No, nunca</div>
+          <div class="chip" onclick="selectChip(this, 'supl')">Proteína</div>
+          <div class="chip" onclick="selectChip(this, 'supl')">Varios</div>
+        </div>
+      </div>
+
+      <div class="field"><label>Notas adicionales (opcional)</label><textarea id="extra" placeholder="Lesiones, horarios de entreno..."></textarea></div>
+      <button class="btn-primary" onclick="generarCarnet()">Generar Carnet</button>
+    </div>
+  </div>
+</div>
+
+<div id="carnet-screen" class="screen">
+  <div class="carnet-screen">
+    <div class="carnet-inner">
+      <div class="carnet-header fade-in"><h2>Tu carnet está listo</h2></div>
+
+      <div class="big-card fade-in">
+        <div class="big-card-top" style="display:flex; justify-content:space-between;">
+          <div class="big-card-logo"><strong>club</strong>.aurum.</div>
+          <div class="big-card-tier"><div class="big-card-tier-name" id="res-goal">MEMBER</div></div>
+        </div>
+        <div class="big-card-profile" style="display:flex; align-items:center; gap:20px;">
+          <div class="big-card-avatar" id="final-avatar">A</div>
+          <div><div class="big-card-name" id="final-name">—</div><div class="big-card-info" id="final-sport">Atleta Aurum</div></div>
+        </div>
+        <div class="big-card-divider" style="height:0.5px; background:rgba(255,255,255,0.1); margin:25px 0;"></div>
+        <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; opacity:0.4;">
+          <span>ID: AUR-2026</span><span>ORIGIN: ARGENTINA</span>
+        </div>
+      </div>
+
+      <div class="rec-card fade-in">
+        <div class="rec-card-title">Tu Rutina Aurum Sugerida</div>
+        <div id="ai-routine-content" class="rec-card-body">Analizando perfil... un aliado silencioso se prepara.</div>
+      </div>
+
+      <div id="coach-section" class="coach-box fade-in" style="display:none;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:15px;">
+          <div id="coach-pic" style="width:45px; height:45px; border-radius:50%; background:var(--sand-dark); display:flex; align-items:center; justify-content:center; font-weight:700;"></div>
+          <div><div id="coach-name" style="font-weight:700;">Coach</div><div style="font-size:10px; opacity:0.5; text-transform:uppercase;">Aurum Staff · Argentina</div></div>
+        </div>
+        <div id="coach-advice" style="font-size:14px; line-height:1.6; font-style:italic;"></div>
+        <button class="btn-shop" onclick="alert('Redirigiendo a tienda...')">Adquirir mi rutina esencial →</button>
+      </div>
+
+      <button onclick="location.reload()" style="margin-top:30px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:12px;">Reiniciar Perfil</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let state = { photo: null, goal: '', deporte: '' };
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function goToStep(n) {
+  [1,2,3].forEach(i => {
+    const step = document.getElementById('step-'+i);
+    if(step) step.style.display = (i === n) ? 'block' : 'none';
+    const dot = document.getElementById('dot-'+i);
+    if(dot) dot.className = `step-dot ${i < n ? 'done' : (i === n ? 'active' : '')}`;
+  });
+}
+
+function previewPhoto(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      state.photo = e.target.result;
+      document.getElementById('photo-preview').src = e.target.result;
+      document.getElementById('photo-preview').style.display = 'block';
+      document.getElementById('photo-msg').style.display = 'none';
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function selectChip(el, type) {
+  el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  if(type === 'goal') state.goal = el.innerText;
+}
+
+function generarCarnet() {
+  const nombre = document.getElementById('nombre').value || "Miembro";
+  state.deporte = document.getElementById('deporte').value || "Actividad Integral";
+  showScreen('carnet-screen');
+
+  // Llenar Carnet
+  document.getElementById('final-name').innerText = nombre;
+  document.getElementById('final-sport').innerText = state.deporte;
+  document.getElementById('res-goal').innerText = state.goal.toUpperCase() || 'MEMBER';
+  if(state.photo) document.getElementById('final-avatar').innerHTML = `<img src="${state.photo}" style="width:100%;height:100%;object-fit:cover;">`;
+
+  // Lógica de Coach y Rutina Basada en el Catálogo
+  const coaches = {
+    'Ganar músculo': { name: 'El Colo', bio: 'Especialista en potencia. Vamos a buscar ese impacto nutritivo real.', initial: 'C' },
+    'Rendir más': { name: 'Martina', bio: 'Coach de resistencia. En Aurum buscamos lo esencial para que no frenes.', initial: 'M' },
+    'Bienestar': { name: 'Fran', bio: 'Experto en balance integral. Menos ruido, más pureza.', initial: 'F' }
+  };
+  const coach = coaches[state.goal] || coaches['Bienestar'];
+
+  // Recomendación Técnica (El Porqué)
+  let rutinaHtml = `Hola <strong>${nombre}</strong>. Según tu perfil en ${state.deporte}, diseñamos esta infraestructura biológica:<br><br>`;
+  
+  if(state.goal === 'Ganar músculo') {
+    rutinaHtml += `• <strong>Natural Protein Blend (Chocolate):</strong> Post-entreno. Priorizamos esta fórmula por su pureza y alta biodisponibilidad para la reparación muscular rápida.<br>
+                   • <strong>Creatine Monohydrate:</strong> 5g diarios. Esencial para maximizar tu fuerza explosiva sin aditivos artificiales.`;
+  } else {
+    rutinaHtml += `• <strong>Greens & Superfoods (Citricor):</strong> En ayunas. Una mezcla limpia de nutrientes para potenciar tu energía y foco mental diario.<br>
+                   • <strong>Hydration Complex (Maracuyá):</strong> Durante el día. Electrolitos esenciales para mantener el impacto nutritivo sin químicos innecesarios.`;
+  }
+
+  document.getElementById('ai-routine-content').innerHTML = rutinaHtml + `<br><br><em>Propósito Aurum: Inspirarte a descubrir tu potencial oculto.</em>`;
+  
+  // Mostrar Coach
+  document.getElementById('coach-section').style.display = 'block';
+  document.getElementById('coach-name').innerText = coach.name;
+  document.getElementById('coach-pic').innerText = coach.initial;
