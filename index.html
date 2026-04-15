@@ -7,220 +7,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   AURUM CLUB - HUMAN CRAFT DESIGN SYSTEM
+   AURUM CLUB - HUMAN CRAFT (DESIGN SYSTEM ORIGINAL)
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
-  --gold-light: #E8D4A8; --white: #FDFCFA; --text: #2A1A0E; --text-muted: #7A6045;
-  --border: rgba(46,31,20,0.1);
+  --sand: #F5F0E8; --sand-mid: #EDE5D5; --sand-dark: #D9CEBC;
+  --brown: #2E1F14; --brown-mid: #5C3D2A; --brown-light: #8B6347;
+  --gold: #C4A067; --gold-light: #E8D4A8; --gold-pale: #F5EDD8;
+  --white: #FDFCFA; --text: #2A1A0E; --text-muted: #7A6045;
+  --border: rgba(46,31,20,0.1); --border-gold: rgba(196,160,103,0.35);
 }
 
+html { scroll-behavior: smooth; }
 body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-/* NAV */
+/* NAVEGACIÓN */
 nav { padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
 .nav-logo { font-weight: 300; font-size: 20px; letter-spacing: -0.01em; color: var(--gold-light); }
 .nav-logo strong { font-weight: 500; }
-.nav-cta { padding: 8px 20px; background: transparent; border: 0.5px solid rgba(196,160,103,0.4); border-radius: 100px; color: var(--gold-light); font-size: 12px; cursor: pointer; transition: 0.2s; }
+.nav-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(196,160,103,0.6); }
+.nav-cta { padding: 8px 20px; background: transparent; border: 0.5px solid rgba(196,160,103,0.4); border-radius: 100px; color: var(--gold-light); font-size: 12px; cursor: pointer; transition: 0.2s; letter-spacing: 0.04em; }
 
-/* SCREENS */
+/* COMPONENTES DE UI */
 .screen { display: none; }
 .screen.active { display: block; }
+.section-wrap { max-width: 760px; margin: 0 auto; padding: 80px 48px; }
+.section-wrap.narrow { max-width: 600px; }
 
 /* HERO */
 .hero { background: var(--brown); padding: 80px 48px 0; text-align: center; position: relative; overflow: hidden; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 8vw, 62px); font-weight: 400; line-height: 1.1; color: var(--gold-light); margin-bottom: 10px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(42px, 8vw, 62px); font-weight: 400; line-height: 1.1; color: var(--gold-light); margin-bottom: 10px; }
 .hero h1 em { font-style: italic; color: var(--gold); }
 .hero-sub { font-size: 15px; font-weight: 300; color: rgba(232,212,168,0.6); max-width: 420px; margin: 0 auto 48px; line-height: 1.7; }
 
-/* CARDS */
-.membership-card { width: 380px; max-width: 90vw; background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 50%, #2E1F14 100%); border-radius: 20px; padding: 32px; box-shadow: 0 40px 80px rgba(0,0,0,0.4); margin: 0 auto; text-align: left; }
-.card-avatar { width: 56px; height: 56px; border-radius: 50%; background: #4A3324; border: 1.5px solid var(--gold); overflow: hidden; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 20px; }
-.card-avatar img { width: 100%; height: 100%; object-fit: cover; }
+/* PASOS Y FORMULARIO */
+.steps-bar { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 48px; }
+.step-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--sand-mid); border: 0.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--text-muted); transition: 0.3s; }
+.step-dot.active { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
+.step-dot.done { background: var(--gold); color: var(--brown); border-color: var(--gold); }
+.step-line { width: 48px; height: 0.5px; background: var(--border); }
+.step-line.done { background: var(--gold); }
 
-/* FORM */
-.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
-.form-block h2 { font-family: 'Playfair Display', serif; font-size: 26px; margin-bottom: 8px; }
-.chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
-.chip { padding: 9px 18px; border: 1px solid var(--border); border-radius: 100px; font-size: 13px; cursor: pointer; transition: 0.2s; }
-.chip.selected { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
-.photo-upload { border: 1px dashed var(--gold); border-radius: 16px; padding: 30px; text-align: center; cursor: pointer; background: rgba(196,160,103,0.05); margin-bottom: 20px; }
+.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 16px; }
+.form-block h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: var(--brown); margin-bottom: 6px; }
+.form-sub { font-size: 14px; color: var(--text-muted); font-weight: 300; margin-bottom: 28px; }
 
-/* BUTTONS */
-.btn-primary { width: 100%; padding: 18px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 500; letter-spacing: 1px; cursor: pointer; text-transform: uppercase; font-size: 12px; }
-.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 20px; }
-
-@media (max-width: 640px) { .hero { padding: 40px 20px 0; } .form-block { padding: 25px; border-radius: 0; } }
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-logo"><strong>club</strong>.aurum.</div>
-  <button class="nav-cta" onclick="showScreen('form-screen')">Unirme gratis</button>
-</nav>
-
-<div id="landing-screen" class="screen active">
-  <div class="hero">
-    <h1><em>club</em>.aurum.</h1>
-    <p class="hero-sub">Tu carnet de membresía para descubrir tu potencial oculto y potenciar tu infraestructura biológica.</p>
-    <div class="membership-card" style="margin-bottom: -40px; transform: rotateX(4deg);">
-      <div style="font-size: 9px; letter-spacing: 2px; opacity: 0.5; margin-bottom: 30px;">MEMBER CARD</div>
-      <div style="display:flex; align-items:center; gap:15px; margin-bottom:30px;">
-        <div class="card-avatar">A</div>
-        <div style="color:var(--gold-light); font-size:18px;">Tu nombre aquí</div>
-      </div>
-      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.4;">
-        <span>AURUM · 2026</span>
-        <span>SOLO LO ESENCIAL</span>
-      </div>
-    </div>
-  </div>
-  <div style="background:white; padding:100px 20px; text-align:center;">
-    <button class="btn-primary" style="max-width:300px;" onclick="showScreen('form-screen')">Crear mi carnet →</button>
-  </div>
-</div>
-
-<div id="form-screen" class="screen">
-  <div style="padding:60px 20px;">
-    <div id="step-1" class="form-block">
-      <h2>Tu identidad</h2>
-      <p style="font-size:14px; opacity:0.6; margin-bottom:25px;">Comencemos con lo esencial.</p>
-      
-      <div class="photo-upload" onclick="document.getElementById('photo-in').click()">
-        <img id="photo-preview" style="display:none; width:80px; height:80px; border-radius:50%; margin:0 auto 10px; object-fit:cover; border:2px solid var(--gold);">
-        <div id="photo-placeholder">📷 <br> <span style="font-size:12px;">Subí tu foto para el carnet</span></div>
-        <input type="file" id="photo-in" hidden accept="image/*" onchange="previewPhoto(this)">
-      </div>
-
-      <input type="text" id="nombre" placeholder="Nombre" style="width:100%; padding:14px; border:1px solid #ddd; border-radius:10px; margin-bottom:15px;">
-      <input type="text" id="apellido" placeholder="Apellido" style="width:100%; padding:14px; border:1px solid #ddd; border-radius:10px; margin-bottom:25px;">
-      
-      <button class="btn-primary" onclick="nextStep(2)">Continuar</button>
-    </div>
-
-    <div id="step-2" class="form-block" style="display:none;">
-      <h2>Tu actividad</h2>
-      <p style="font-size:14px; opacity:0.6; margin-bottom:20px;">¿Cómo mueves el cuerpo?</p>
-      
-      <input type="text" id="deporte" placeholder="Deporte (Ej: CrossFit)" style="width:100%; padding:14px; border:1px solid #ddd; border-radius:10px; margin-bottom:15px;">
-      
-      <span style="font-size:11px; text-transform:uppercase; opacity:0.5;">Objetivo Principal</span>
-      <div class="chip-group" id="objetivos">
-        <div class="chip" onclick="selectChip(this, 'goal')">Ganar músculo</div>
-        <div class="chip" onclick="selectChip(this, 'goal')">Rendir más</div>
-        <div class="chip" onclick="selectChip(this, 'goal')">Bienestar</div>
-        <div class="chip" onclick="selectChip(this, 'goal')">Foco Mental</div>
-      </div>
-
-      <button class="btn-primary" onclick="generarCarnet()">Finalizar y Crear Rutina</button>
-    </div>
-  </div>
-</div>
-
-<div id="result-screen" class="screen">
-  <div style="background:var(--brown); min-height:100vh; padding:60px 20px; text-align:center;">
-    <h2 style="color:var(--gold-light); font-family:'Playfair Display',serif; margin-bottom:30px;">Carnet de Miembro Aurum</h2>
-    <div id="final-card-mount"></div>
-
-    <div id="routine-box" style="background:white; border-radius:24px; padding:35px; text-align:left; max-width:500px; margin:20px auto; color:var(--brown);">
-      <div id="coach-badge" style="display:flex; align-items:center; gap:12px; margin-bottom:20px; border-bottom:1px solid #eee; padding-bottom:15px;">
-        <div id="coach-img" style="width:45px; height:45px; border-radius:50%; background:#f0f0f0;"></div>
-        <div>
-          <div id="coach-name" style="font-weight:700; font-size:15px;">Coach</div>
-          <div style="font-size:10px; opacity:0.5; text-transform:uppercase;">Aurum Staff · Arg</div>
-        </div>
-      </div>
-
-      <div id="routine-content" style="font-size:14px; line-height:1.7;"></div>
-      
-      <button class="btn-primary btn-shop" onclick="alert('Redirigiendo a tienda...')">Adquirir mi rutina esencial →</button>
-    </div>
-
-    <button onclick="location.reload()" style="margin-top:30px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:12px;">Reiniciar Perfil</button>
-  </div>
-</div>
-
-<script>
-let state = { photo: null, goal: '' };
-
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
-}
-
-function previewPhoto(input) {
-  if (input.files && input.files[0]) {
-    const reader = new FileReader();
-    reader.onload = e => {
-      state.photo = e.target.result;
-      document.getElementById('photo-preview').src = e.target.result;
-      document.getElementById('photo-preview').style.display = 'block';
-      document.getElementById('photo-placeholder').style.display = 'none';
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-}
-
-function selectChip(el, type) {
-  el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
-  el.classList.add('selected');
-  state[type] = el.innerText;
-}
-
-function nextStep(n) {
-  document.getElementById('step-1').style.display = 'none';
-  document.getElementById('step-2').style.display = 'block';
-}
-
-function generarCarnet() {
-  const name = document.getElementById('nombre').value || "Miembro";
-  const deporte = document.getElementById('deporte').value || "Vida Activa";
-  showScreen('result-screen');
-
-  document.getElementById('final-card-mount').innerHTML = `
-    <div class="membership-card">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:25px;">
-        <div class="card-avatar">${state.photo ? `<img src="${state.photo}">` : name[0]}</div>
-        <div style="font-size:9px; border:1px solid; padding:4px 10px; border-radius:100px; opacity:0.4;">${state.goal.toUpperCase() || 'MEMBER'}</div>
-      </div>
-      <div style="margin-bottom:30px;">
-        <div style="font-size:22px; font-weight:300; text-transform:lowercase; color:var(--gold-light);">${name}</div>
-        <div style="font-size:11px; opacity:0.5; margin-top:4px;">${deporte}</div>
-      </div>
-      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3;">
-        <span>ID: AUR-${Math.floor(Math.random()*9000+1000)}</span>
-        <span>SOLO LO ESENCIAL</span>
-      </div>
-    </div>
-  `;
-
-  // STAFF DE ENTRENADORES ARGENTINOS
-  const coaches = {
-    'Ganar músculo': { name: 'Santi "El Colo"', bio: 'Experto en fuerza. Vamos a potenciar esa base biológica.', img: 'SC' },
-    'Rendir más': { name: 'Martina', bio: 'Coach de Endurance. Lo esencial para que tu motor no frene.', img: 'M' },
-    'Bienestar': { name: 'Fran', bio: 'Foco en balance integral. Menos ruido, más impacto nutritivo.', img: 'F' }
-  };
-  const coach = coaches[state.goal] || coaches['Bienestar'];
-
-  document.getElementById('coach-name').innerText = coach.name;
-  document.getElementById('coach-img').innerText = coach.img;
-  document.getElementById('coach-img').style.cssText = "display:flex; align-items:center; justify-content:center; background:#eee; font-weight:700;";
-
-  document.getElementById('routine-content').innerHTML = `
-    <p style="margin-bottom:15px; font-style:italic; opacity:0.7;">"${coach.bio}"</p>
-    <p>Para tu objetivo en <strong>${deporte}</strong>, esta es tu sinergia Aurum:</p>
-    <ul style="margin:15px 0; padding-left:20px;">
-      <li><strong>Natural Protein Blend:</strong> Reparación muscular limpia post-esfuerzo[cite: 9].</li>
-      <li><strong>Creatine Monohydrate:</strong> El aliado para tu potencia y fuerza pura[cite: 17].</li>
-      <li><strong>Hydration Complex (Maracuyá):</strong> Electrolitos sin aditivos para mantener el ritmo[cite: 26, 29].</li>
-    </ul>
-    <p style="font-size:12px; border-top:1px solid #f0f0f0; padding-top:10px;"><strong>¿Por qué?</strong> Priorizamos fórmulas simples y efectivas que eliminan químicos innecesarios para que solo lo esencial potencie tu cuerpo[cite: 5, 6].</p>
-  `;
-}
-</script>
-</body>
-</html>
+.field { margin-bottom: 20px; }
+.field label { display: block; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+input, select, textarea { width: 100%; padding: 13px 16px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text); outline: none; transition: 0.2s; }
+input:focus, select:focus {
