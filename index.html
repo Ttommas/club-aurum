@@ -1,12 +1,12 @@
-ç+<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>club.aurum. | Optimización Biológica</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-/* SISTEMA DE DISEÑO AURUM */
+/* SISTEMA DE DISEÑO AURUM - SANS SERIF */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
@@ -16,7 +16,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(-
 
 /* NAVEGACIÓN */
 nav { padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
-.nav-logo { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 22px; color: var(--gold-light); }
+.nav-logo { font-weight: 500; font-size: 20px; color: var(--gold-light); letter-spacing: -0.02em; }
 .nav-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(196,160,103,0.6); }
 
 /* ESTRUCTURA */
@@ -25,8 +25,8 @@ nav { padding: 22px 48px; display: flex; align-items: center; justify-content: s
 .section-wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px; }
 
 /* HERO Y CARNET */
-.hero { background: var(--brown); padding: 60px 24px 80px; text-align: center; position: relative; overflow: hidden; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(48px, 10vw, 72px); color: var(--gold-light); line-height: 1; margin-bottom: 15px; font-weight: 400; }
+.hero { background: var(--brown); padding: 60px 24px 80px; text-align: center; }
+.hero h1 { font-size: clamp(40px, 8vw, 64px); color: var(--gold-light); line-height: 1; margin-bottom: 15px; font-weight: 500; letter-spacing: -0.03em; }
 .hero-sub { color: rgba(232,212,168,0.7); font-size: 16px; font-weight: 300; max-width: 450px; margin: 0 auto 50px; line-height: 1.6; }
 
 .membership-card { 
@@ -35,14 +35,14 @@ nav { padding: 22px 48px; display: flex; align-items: center; justify-content: s
     border-radius: 24px; padding: 40px; 
     box-shadow: 0 40px 80px rgba(0,0,0,0.4); 
     margin: 0 auto; text-align: left; 
-    transform: rotateX(4deg); z-index: 10; position: relative;
+    z-index: 10; position: relative;
 }
 
 /* FORMULARIOS */
-.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 16px; text-align: left; }
-.form-block h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--brown); margin-bottom: 20px; }
-.field { margin-bottom: 20px; }
-.field label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 16px; }
+.form-block h2 { font-size: 28px; font-weight: 500; color: var(--brown); margin-bottom: 20px; letter-spacing: -0.02em; }
+.field { margin-bottom: 20px; text-align: left; }
+.field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
 input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 14px; outline: none; }
 
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -51,8 +51,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
 
 /* BOTONES */
 .btn-primary { width: 100%; padding: 18px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; transition: 0.3s; }
-.btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
-.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 30px; text-decoration: none; display: block; text-align: center; border-radius: 50px; padding: 20px; }
+.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 30px; text-decoration: none; display: block; text-align: center; border-radius: 50px; padding: 20px; font-size: 14px; }
 
 /* CARNET FINAL */
 .big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 24px; padding: 48px; box-shadow: 0 60px 120px rgba(0,0,0,0.5); text-align: left; margin-bottom: 30px; }
@@ -69,15 +68,15 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
 <div id="landing-screen" class="screen active">
   <div class="hero">
     <h1>club.aurum.</h1>
-    <p class="hero-sub">Potenciamos el cuerpo y la mente para descubrir tu potencial oculto y adoptar un estilo de vida más saludable.</p>
+    <p class="hero-sub">Potenciamos el cuerpo y la mente con lo esencial para descubrir tu potencial oculto.</p>
     <div class="membership-card">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
-        <div style="color:var(--gold-light); font-size:20px; font-family:'Playfair Display', serif;">club.aurum.</div>
-        <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6; letter-spacing:1px;">MEMBER</div>
+        <div style="color:var(--gold-light); font-size:18px; font-weight:500;">club.aurum.</div>
+        <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6;">MEMBER</div>
       </div>
       <div style="display:flex; align-items:center; gap:25px; margin-bottom:40px;">
-        <div style="width:65px; height:65px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px;">A</div>
-        <div style="color:var(--gold-light); font-size:20px; font-weight:300;">Tu nombre aquí</div>
+        <div style="width:60px; height:60px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:22px;">A</div>
+        <div style="color:var(--gold-light); font-size:20px; font-weight:400;">Tu nombre aquí</div>
       </div>
       <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light);">
         <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
@@ -96,7 +95,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
       <div class="field">
         <div style="border:1px dashed var(--gold); border-radius:15px; padding:30px; text-align:center; cursor:pointer;" onclick="document.getElementById('foto-in').click()">
           <img id="photo-preview" style="display:none; width:85px; height:85px; border-radius:50%; margin:0 auto 10px; object-fit:cover; border:2px solid var(--gold);">
-          <div id="photo-msg">📷 <br> <span style="font-size:12px;">Cargar foto oficial</span></div>
+          <div id="photo-msg">📷 <br> <span style="font-size:12px;">Foto oficial</span></div>
           <input type="file" id="foto-in" hidden accept="image/*" onchange="handleImage(this)">
         </div>
       </div>
@@ -127,20 +126,19 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
         </select>
       </div>
       <div class="field">
-        <label>Objetivos (Selección múltiple)</label>
+        <label>Objetivos (Múltiple)</label>
         <div class="chip-group" id="goals">
           <div class="chip" onclick="this.classList.toggle('selected')">Ganar músculo</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Rendir más</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Recuperación</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Foco Mental</div>
-          <div class="chip" onclick="this.classList.toggle('selected')">Bienestar general</div>
         </div>
       </div>
-      <button class="btn-primary" onclick="goToStep(3)">Último paso</button>
+      <button class="btn-primary" onclick="goToStep(3)">Continuar</button>
     </div>
 
     <div id="step-3" class="form-block" style="display:none;">
-      <h2>Restricciones Alimenticias</h2>
+      <h2>Dieta y Restricciones</h2>
       <div class="field">
         <div class="chip-group" id="diet">
           <div class="chip" onclick="this.classList.toggle('selected')">Vegano</div>
@@ -159,14 +157,14 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
   <div style="background:var(--brown); min-height:100vh; padding:60px 24px; text-align:center;">
     <div class="big-card">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div style="color:var(--gold-light); font-size:24px; font-family:'Playfair Display', serif;">club.aurum.</div>
+        <div style="color:var(--gold-light); font-size:22px; font-weight:500;">club.aurum.</div>
         <div style="font-size:10px; border:1px solid; padding:5px 15px; border-radius:100px; color:var(--gold);">MEMBER</div>
       </div>
       <div style="display:flex; align-items:center; gap:25px; margin:45px 0;">
         <div id="final-avatar" style="width:85px; height:85px; border-radius:50%; border:2.5px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:30px;">A</div>
         <div>
-          <div id="final-name" style="font-size:30px; color:var(--gold-light); text-transform:lowercase; font-weight:300;"></div>
-          <div id="final-bio" style="font-size:13px; color:rgba(196,160,103,0.5); margin-top:8px; font-weight:300;"></div>
+          <div id="final-name" style="font-size:28px; color:var(--gold-light); text-transform:lowercase; font-weight:400;"></div>
+          <div id="final-bio" style="font-size:13px; color:rgba(196,160,103,0.5); margin-top:8px; font-weight:400;"></div>
         </div>
       </div>
       <div style="height:0.5px; background:rgba(196,160,103,0.15); margin-bottom:25px;"></div>
@@ -176,9 +174,9 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
     </div>
 
     <div class="rec-card">
-      <h3 style="font-family:'Playfair Display',serif; color:var(--gold-light); font-size:26px; margin-bottom:25px; font-weight:400;">Protocolo Biológico Sugerido</h3>
+      <h3 style="color:var(--gold-light); font-size:24px; margin-bottom:25px; font-weight:500; letter-spacing:-0.02em;">Protocolo Biológico</h3>
       <div id="rec-text" style="font-size:15px; line-height:1.8; opacity:0.8; font-weight:300;"></div>
-      <a href="https://www.aurumarg.com" target="_blank" class="btn-shop">Comprar mi kit esencial →</a>
+      <a href="https://www.aurumarg.com" target="_blank" class="btn-shop">Adquirir mi rutina esencial →</a>
     </div>
     <button onclick="location.reload()" style="margin-top:40px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:13px;">Nuevo Perfil</button>
   </div>
@@ -207,7 +205,10 @@ function handleImage(input) {
 }
 
 function goToStep(n) {
-  [1,2,3].forEach(i => document.getElementById('step-'+i).style.display = (i===n)?'block':'none');
+  [1,2,3].forEach(i => {
+    const step = document.getElementById('step-'+i);
+    if(step) step.style.display = (i===n)?'block':'none';
+  });
 }
 
 function generarCarnet() {
@@ -220,15 +221,15 @@ function generarCarnet() {
   document.getElementById('final-bio').innerText = `${deporte} · ${document.getElementById('edad').value} años · ${document.getElementById('peso').value}kg`;
   if(state.photo) document.getElementById('final-avatar').innerHTML = `<img src="${state.photo}" style="width:100%; height:100%; object-fit:cover;">`;
 
-  let protocolo = `Hola <strong>${nombre}</strong>. Basados en tu objetivo de optimizar tu rendimiento biológico, diseñamos esta sinergia de pureza absoluta:<br><br>`;
+  let protocolo = `Hola <strong>${nombre}</strong>. Basados en tus parámetros técnicos, diseñamos este protocolo biológico enfocado en la biodisponibilidad molecular:<br><br>`;
   
   if(objetivos.some(o => o.includes('músculo') || o.includes('Rendir'))) {
-    protocolo += `• <strong>Natural Protein Blend:</strong> Máximo impacto en la síntesis proteica post-esfuerzo para una reparación de tejido miofibrilar limpia y efectiva.<br>
-                  • <strong>Creatine Monohydrate:</strong> Optimización de la resíntesis de ATP para elevar el umbral de potencia mecánica y fuerza explosiva.<br>
-                  • <strong>Hydration Complex:</strong> Restauración crítica del equilibrio electrolítico para mantener la intensidad sin interferencia de aditivos.`;
+    protocolo += `• <strong>Natural Protein Blend:</strong> Maximiza la síntesis proteica miofibrilar mediante una absorción limpia sin interferencia de aditivos[cite: 6, 9].<br>
+                  • <strong>Creatine Monohydrate:</strong> Optimiza la resíntesis de ATP celular para incrementar el umbral de potencia mecánica[cite: 17].<br>
+                  • <strong>Hydration Complex:</strong> Restablece el equilibrio osmótico intra y extracelular durante el esfuerzo intenso[cite: 26].`;
   } else {
-    protocolo += `• <strong>Greens & Superfoods:</strong> Densidad de micronutrientes para la estabilidad metabólica y energía sostenida durante el día.<br>
-                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos limpia para el mantenimiento integral de tu infraestructura biológica diaria.`;
+    protocolo += `• <strong>Greens & Superfoods:</strong> Aporta una densidad crítica de micronutrientes para estabilizar funciones metabólicas diarias[cite: 20].<br>
+                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento integral de la infraestructura biológica saludable[cite: 13, 3].`;
   }
   
   document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial.</em>`;
