@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>club.aurum | Optimización Biológica</title>
+<title>club.aurum | Membresía</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-/* SISTEMA DE DISEÑO AURUM - SANS SERIF */
+/* SISTEMA DE DISEÑO AURUM */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
@@ -28,7 +28,7 @@ nav { padding: 25px 48px; display: flex; align-items: center; justify-content: s
 .screen.active { display: block; }
 .section-wrap { max-width: 760px; margin: 0 auto; padding: 50px 24px; }
 
-/* HERO Y CARNET PREVIEW */
+/* HERO Y CARNET */
 .hero { background: var(--brown); padding: 70px 24px 90px; text-align: center; }
 .hero h1 { font-size: clamp(42px, 9vw, 68px); color: var(--gold-light); line-height: 1; margin-bottom: 20px; letter-spacing: -0.03em; }
 .hero-sub { color: rgba(232,212,168,0.7); font-size: 16px; font-weight: 300; max-width: 480px; margin: 0 auto 60px; line-height: 1.6; }
@@ -43,12 +43,11 @@ nav { padding: 25px 48px; display: flex; align-items: center; justify-content: s
 }
 
 /* FORMULARIOS */
-.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 45px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 45px; margin-bottom: 20px; }
 .form-block h2 { font-size: 30px; font-weight: 500; color: var(--brown); margin-bottom: 25px; letter-spacing: -0.02em; }
 .field { margin-bottom: 24px; text-align: left; }
 .field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-input, select, textarea { width: 100%; padding: 15px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 15px; outline: none; transition: border-color 0.2s; }
-input:focus, select:focus { border-color: var(--gold); }
+input, select, textarea { width: 100%; padding: 15px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 15px; outline: none; }
 
 .chip-group { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip { padding: 10px 20px; border: 0.5px solid var(--border); border-radius: 100px; font-size: 13px; cursor: pointer; background: var(--sand); transition: 0.2s; }
@@ -59,9 +58,10 @@ input:focus, select:focus { border-color: var(--gold); }
 .btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
 .btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 35px; text-decoration: none; display: block; text-align: center; border-radius: 50px; padding: 22px; font-size: 15px; }
 
-/* CARNET FINAL RESULT */
-.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 28px; padding: 50px; box-shadow: 0 60px 120px rgba(0,0,0,0.5); text-align: left; margin-bottom: 40px; }
-.rec-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(196,160,103,0.15); border-radius: 24px; padding: 40px; max-width: 650px; margin: 0 auto; text-align: left; color: var(--gold-light); }
+/* RESULTADO FINAL */
+.carnet-screen { background: var(--brown); min-height: 100vh; padding: 60px 24px; text-align: center; }
+.result-card-container { width: 100%; margin-bottom: 40px; display: flex; justify-content: center; }
+.rec-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(196,160,103,0.15); border-radius: 24px; padding: 40px; max-width: 600px; margin: 0 auto; text-align: left; color: var(--gold-light); }
 </style>
 </head>
 <body>
@@ -82,7 +82,7 @@ input:focus, select:focus { border-color: var(--gold); }
         <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6; font-weight:600;">MEMBER</div>
       </div>
       <div style="display:flex; align-items:center; gap:25px; margin-bottom:45px;">
-        <div id="p-avatar" style="width:65px; height:65px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px; font-weight:300;">A</div>
+        <div style="width:65px; height:65px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px; font-weight:300;">A</div>
         <div style="color:var(--gold-light); font-size:22px; font-weight:400;">Tu nombre aquí</div>
       </div>
       <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light); letter-spacing:1px;">
@@ -91,7 +91,7 @@ input:focus, select:focus { border-color: var(--gold); }
     </div>
   </div>
   
-  <div style="background:white; padding:120px 24px; text-align:center;">
+  <div style="background:white; padding:100px 24px; text-align:center;">
     <button class="btn-primary" style="max-width:380px;" onclick="showScreen('form-screen')">Generar Perfil Técnico →</button>
   </div>
 </div>
@@ -158,39 +158,41 @@ input:focus, select:focus { border-color: var(--gold); }
           <div class="chip" onclick="this.classList.toggle('selected')">Ninguna</div>
         </div>
       </div>
-      <div class="field"><label>Notas adicionales</label><textarea id="extra" placeholder="Ej: lesiones, sensibilidad a la cafeína..."></textarea></div>
       <button class="btn-primary" onclick="generarCarnet()">Finalizar Perfil</button>
     </div>
   </div>
 </div>
 
 <div id="carnet-screen" class="screen">
-  <div style="background:var(--brown); min-height:100vh; padding:70px 24px; text-align:center;">
-    <div class="big-card">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="brand" style="color:var(--gold-light); font-size:26px;">club<strong>.aurum</strong></div>
-        <div style="font-size:10px; border:1px solid; padding:6px 16px; border-radius:100px; color:var(--gold); font-weight:600;">MEMBER</div>
-      </div>
-      <div style="display:flex; align-items:center; gap:25px; margin:50px 0;">
-        <div id="final-avatar" style="width:90px; height:90px; border-radius:50%; border:2.5px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:32px;">A</div>
-        <div style="text-align:left;">
-          <div id="final-name" style="font-size:30px; color:var(--gold-light); text-transform:lowercase; font-weight:400;"></div>
-          <div id="final-bio" style="font-size:14px; color:rgba(196,160,103,0.6); margin-top:10px; font-weight:400;"></div>
+  <div style="background:var(--brown); min-height:100vh; padding:60px 24px; text-align:center;">
+    
+    <div class="result-card-container">
+        <div class="membership-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:45px;">
+            <div class="brand" style="color:var(--gold-light); font-size:19px;">club<strong>.aurum</strong></div>
+            <div style="font-size:9px; border:1px solid; padding:4px 12px; border-radius:100px; color:var(--gold); font-weight:600;">MEMBER</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:25px; margin:50px 0;">
+            <div id="final-avatar" style="width:70px; height:70px; border-radius:50%; border:2.5px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:26px; font-weight:300;">A</div>
+            <div style="text-align:left;">
+              <div id="final-name" style="font-size:24px; color:var(--gold-light); text-transform:lowercase; font-weight:400;"></div>
+              <div id="final-bio" style="font-size:12px; color:rgba(196,160,103,0.6); margin-top:10px; font-weight:400;"></div>
+            </div>
+          </div>
+          <div style="height:1px; background:rgba(196,160,103,0.15); margin-bottom:30px;"></div>
+          <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.4; color:var(--gold-light); letter-spacing:1px;">
+            <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
+          </div>
         </div>
-      </div>
-      <div style="height:1px; background:rgba(196,160,103,0.15); margin-bottom:30px;"></div>
-      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; opacity:0.4; color:var(--gold-light); letter-spacing:1px;">
-        <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
-      </div>
     </div>
 
     <div class="rec-card">
-      <h3 style="color:var(--gold-light); font-size:24px; margin-bottom:25px; font-weight:500; letter-spacing:-0.02em;">Protocolo de Suplementación</h3>
+      <h3 style="color:var(--gold-light); font-size:24px; margin-bottom:25px; font-weight:500; letter-spacing:-0.02em;">Rutina sugerida</h3>
       <div id="rec-text" style="font-size:15px; line-height:1.9; opacity:0.8; font-weight:300;"></div>
       <a href="https://www.aurumarg.com" target="_blank" class="btn-shop">Adquirir mi rutina esencial →</a>
     </div>
     
-    <button onclick="location.reload()" style="margin-top:50px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:14px;">Reiniciar Diagnóstico</button>
+    <button onclick="location.reload()" style="margin-top:50px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:14px;">Reiniciar Perfil</button>
   </div>
 </div>
 
@@ -240,19 +242,19 @@ function generarCarnet() {
     document.getElementById('final-avatar').innerText = nombre[0].toUpperCase();
   }
 
-  // RECOMENDACIÓN TÉCNICA SIN ETIQUETAS DE CITA
-  let protocolo = `Hola <strong>${nombre}</strong>. Basados en tus parámetros de ${deporte}, diseñamos este protocolo biológico enfocado en la pureza y biodisponibilidad de nutrientes:<br><br>`;
+  // RECOMENDACIÓN AMABLE Y DE MARCA
+  let protocolo = `Hola <strong>${nombre}</strong>. Para acompañar tu proceso en ${deporte}, elegimos esta sinergia de productos limpios que priorizan lo que tu cuerpo realmente necesita para rendir mejor:<br><br>`;
   
   if(objetivos.some(o => o.includes('músculo') || o.includes('Rendir'))) {
-    protocolo += `• <strong>Natural Protein Blend:</strong> Máximo impacto en la síntesis proteica miofibrilar para una recuperación de tejido limpia y efectiva.<br>
-                  • <strong>Creatine Monohydrate:</strong> Optimización de la resíntesis de ATP celular para incrementar la potencia mecánica y fuerza explosiva.<br>
-                  • <strong>Hydration Complex:</strong> Restauración del equilibrio electrolítico intra y extracelular sin aditivos ni químicos innecesarios.`;
+    protocolo += `• <strong>Natural Protein Blend:</strong> Para una recuperación muscular efectiva después de entrenar, con ingredientes de la más alta calidad.<br>
+                  • <strong>Creatine Monohydrate:</strong> El aliado ideal para potenciar tu fuerza y ayudarte a alcanzar tu mejor versión en cada sesión.<br>
+                  • <strong>Hydration Complex:</strong> Hidratación esencial para mantener tu energía y recuperar electrolitos sin químicos innecesarios.`;
   } else {
-    protocolo += `• <strong>Greens & Superfoods:</strong> Aporta una densidad crítica de micronutrientes para estabilizar funciones metabólicas y energía sostenida.<br>
-                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento de tu infraestructura biológica diaria.`;
+    protocolo += `• <strong>Greens & Superfoods:</strong> Nutrientes esenciales para que te sientas con más energía y bienestar a lo largo del día.<br>
+                  • <strong>Plant-based Protein:</strong> Una opción de origen vegetal pura y simple para fortalecer tu infraestructura biológica diaria.`;
   }
   
-  document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial.</em>`;
+  document.getElementById('rec-text').innerHTML = protocolo;
 }
 </script>
 </body>
