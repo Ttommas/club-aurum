@@ -6,7 +6,7 @@
 <title>club.aurum | Optimización Biológica</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
-/* SISTEMA DE DISEÑO AURUM */
+/* SISTEMA DE DISEÑO AURUM - SANS SERIF */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sand: #F5F0E8; --sand-mid: #EDE5D5; --brown: #2E1F14; --gold: #C4A067;
@@ -14,24 +14,24 @@
 }
 body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-/* BRANDING STYLE: club (thin) aurum (bold) */
+/* BRANDING STYLE: club (thin) .aurum (bold) */
 .brand { font-weight: 100; letter-spacing: -0.02em; }
 .brand strong { font-weight: 700; }
 
 /* NAVEGACIÓN */
-nav { padding: 22px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
-.nav-logo { font-size: 20px; color: var(--gold-light); }
+nav { padding: 25px 48px; display: flex; align-items: center; justify-content: space-between; background: var(--brown); position: sticky; top: 0; z-index: 200; }
+.nav-logo { font-size: 22px; color: var(--gold-light); }
 .nav-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(196,160,103,0.6); }
 
 /* ESTRUCTURA */
-.screen { display: none; padding-bottom: 50px; }
+.screen { display: none; padding-bottom: 60px; }
 .screen.active { display: block; }
-.section-wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px; }
+.section-wrap { max-width: 760px; margin: 0 auto; padding: 50px 24px; }
 
-/* HERO Y CARNET */
-.hero { background: var(--brown); padding: 60px 24px 80px; text-align: center; }
-.hero h1 { font-size: clamp(40px, 8vw, 64px); color: var(--gold-light); line-height: 1; margin-bottom: 15px; letter-spacing: -0.03em; }
-.hero-sub { color: rgba(232,212,168,0.7); font-size: 16px; font-weight: 300; max-width: 450px; margin: 0 auto 50px; line-height: 1.6; }
+/* HERO Y CARNET PREVIEW */
+.hero { background: var(--brown); padding: 70px 24px 90px; text-align: center; }
+.hero h1 { font-size: clamp(42px, 9vw, 68px); color: var(--gold-light); line-height: 1; margin-bottom: 20px; letter-spacing: -0.03em; }
+.hero-sub { color: rgba(232,212,168,0.7); font-size: 16px; font-weight: 300; max-width: 480px; margin: 0 auto 60px; line-height: 1.6; }
 
 .membership-card { 
     width: 380px; max-width: 90vw; 
@@ -43,71 +43,75 @@ nav { padding: 22px 48px; display: flex; align-items: center; justify-content: s
 }
 
 /* FORMULARIOS */
-.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 40px; margin-bottom: 16px; }
-.form-block h2 { font-size: 28px; font-weight: 500; color: var(--brown); margin-bottom: 20px; letter-spacing: -0.02em; }
-.field { margin-bottom: 20px; text-align: left; }
-.field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 14px; outline: none; }
+.form-block { background: var(--white); border: 0.5px solid var(--border); border-radius: 20px; padding: 45px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+.form-block h2 { font-size: 30px; font-weight: 500; color: var(--brown); margin-bottom: 25px; letter-spacing: -0.02em; }
+.field { margin-bottom: 24px; text-align: left; }
+.field label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+input, select, textarea { width: 100%; padding: 15px; border: 0.5px solid var(--border); border-radius: 12px; background: var(--sand); font-family: inherit; font-size: 15px; outline: none; transition: border-color 0.2s; }
+input:focus, select:focus { border-color: var(--gold); }
 
-.chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { padding: 9px 18px; border: 0.5px solid var(--border); border-radius: 100px; font-size: 13px; cursor: pointer; background: var(--sand); transition: 0.2s; }
+.chip-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { padding: 10px 20px; border: 0.5px solid var(--border); border-radius: 100px; font-size: 13px; cursor: pointer; background: var(--sand); transition: 0.2s; }
 .chip.selected { background: var(--brown); color: var(--gold-light); border-color: var(--brown); }
 
 /* BOTONES */
-.btn-primary { width: 100%; padding: 18px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px; transition: 0.3s; }
-.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 30px; text-decoration: none; display: block; text-align: center; border-radius: 50px; padding: 20px; font-size: 14px; }
+.btn-primary { width: 100%; padding: 20px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px; transition: 0.3s; }
+.btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
+.btn-shop { background: var(--gold); color: var(--brown); font-weight: 700; margin-top: 35px; text-decoration: none; display: block; text-align: center; border-radius: 50px; padding: 22px; font-size: 15px; }
 
-/* CARNET FINAL */
-.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 24px; padding: 48px; box-shadow: 0 60px 120px rgba(0,0,0,0.5); text-align: left; margin-bottom: 30px; }
-.rec-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(196,160,103,0.15); border-radius: 20px; padding: 35px; max-width: 600px; margin: 0 auto; text-align: left; color: var(--gold-light); }
+/* CARNET FINAL RESULT */
+.big-card { background: linear-gradient(135deg, #2E1F14 0%, #4A2E1A 40%, #3A2416 100%); border-radius: 28px; padding: 50px; box-shadow: 0 60px 120px rgba(0,0,0,0.5); text-align: left; margin-bottom: 40px; }
+.rec-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(196,160,103,0.15); border-radius: 24px; padding: 40px; max-width: 650px; margin: 0 auto; text-align: left; color: var(--gold-light); }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo brand">club<strong>aurum</strong></div>
+  <div class="nav-logo brand">club<strong>.aurum</strong></div>
   <div class="nav-tag">Membership</div>
 </nav>
 
 <div id="landing-screen" class="screen active">
   <div class="hero">
-    <h1 class="brand">club<strong>aurum</strong></h1>
-    <p class="hero-sub">Potenciamos el cuerpo y la mente con lo esencial para descubrir tu potencial oculto[cite: 3, 4].</p>
+    <h1 class="brand">club<strong>.aurum</strong></h1>
+    <p class="hero-sub">Potenciamos el cuerpo y la mente con lo esencial para descubrir tu potencial oculto.</p>
+    
     <div class="membership-card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:40px;">
-        <div class="brand" style="color:var(--gold-light); font-size:18px;">club<strong>aurum</strong></div>
-        <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6;">MEMBER</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:45px;">
+        <div class="brand" style="color:var(--gold-light); font-size:19px;">club<strong>.aurum</strong></div>
+        <div style="font-size:9px; border:0.5px solid; padding:4px 12px; border-radius:100px; color:var(--gold); opacity:0.6; font-weight:600;">MEMBER</div>
       </div>
-      <div style="display:flex; align-items:center; gap:25px; margin-bottom:40px;">
-        <div style="width:60px; height:60px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:22px;">A</div>
-        <div style="color:var(--gold-light); font-size:20px; font-weight:400;">Tu nombre aquí</div>
+      <div style="display:flex; align-items:center; gap:25px; margin-bottom:45px;">
+        <div id="p-avatar" style="width:65px; height:65px; border-radius:50%; border:1.5px solid var(--gold); background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:24px; font-weight:300;">A</div>
+        <div style="color:var(--gold-light); font-size:22px; font-weight:400;">Tu nombre aquí</div>
       </div>
-      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light);">
-        <span>AUR-00001</span><span>SOLO LO ESENCIAL [cite: 4]</span>
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:10px; opacity:0.3; color:var(--gold-light); letter-spacing:1px;">
+        <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
       </div>
     </div>
   </div>
-  <div style="background:white; padding:100px 24px; text-align:center;">
-    <button class="btn-primary" style="max-width:350px;" onclick="showScreen('form-screen')">Generar Perfil Técnico →</button>
+  
+  <div style="background:white; padding:120px 24px; text-align:center;">
+    <button class="btn-primary" style="max-width:380px;" onclick="showScreen('form-screen')">Generar Perfil Técnico →</button>
   </div>
 </div>
 
 <div id="form-screen" class="screen">
-  <div class="section-wrap" style="max-width:600px;">
+  <div class="section-wrap" style="max-width:620px;">
     <div id="step-1" class="form-block">
       <h2>Perfil Biológico</h2>
       <div class="field">
-        <div style="border:1px dashed var(--gold); border-radius:15px; padding:30px; text-align:center; cursor:pointer;" onclick="document.getElementById('foto-in').click()">
-          <img id="photo-preview" style="display:none; width:85px; height:85px; border-radius:50%; margin:0 auto 10px; object-fit:cover; border:2px solid var(--gold);">
-          <div id="photo-msg">📷 <br> <span style="font-size:12px;">Foto oficial</span></div>
+        <div style="border:1px dashed var(--gold); border-radius:15px; padding:35px; text-align:center; cursor:pointer; background:rgba(196,160,103,0.03);" onclick="document.getElementById('foto-in').click()">
+          <img id="photo-preview" style="display:none; width:90px; height:90px; border-radius:50%; margin:0 auto 12px; object-fit:cover; border:2px solid var(--gold);">
+          <div id="photo-msg">📷 <br> <span style="font-size:12px; opacity:0.6;">Subir foto oficial para el carnet</span></div>
           <input type="file" id="foto-in" hidden accept="image/*" onchange="handleImage(this)">
         </div>
       </div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-        <div class="field"><label>Nombre</label><input type="text" id="nombre" placeholder="Tomás"></div>
-        <div class="field"><label>Apellido</label><input type="text" id="apellido" placeholder="Llaneza"></div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+        <div class="field"><label>Nombre</label><input type="text" id="nombre" placeholder="Nombre"></div>
+        <div class="field"><label>Apellido</label><input type="text" id="apellido" placeholder="Apellido"></div>
       </div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px;">
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:15px;">
         <div class="field"><label>Edad</label><input type="number" id="edad" placeholder="28"></div>
         <div class="field"><label>Sexo</label><select id="sexo"><option>M</option><option>F</option></select></div>
         <div class="field"><label>Peso (kg)</label><input type="number" id="peso" placeholder="75"></div>
@@ -120,7 +124,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
       <div class="field">
         <label>Actividad Principal</label>
         <select id="deporte">
-          <option value="">Seleccionar</option>
+          <option value="">Seleccionar actividad</option>
           <option>CrossFit</option>
           <option>Running</option>
           <option>Musculación / Gimnasio</option>
@@ -130,12 +134,13 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
         </select>
       </div>
       <div class="field">
-        <label>Objetivos (Múltiple)</label>
+        <label>Objetivos de Rendimiento (Múltiple)</label>
         <div class="chip-group" id="goals">
           <div class="chip" onclick="this.classList.toggle('selected')">Ganar músculo</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Rendir más</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Recuperación</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Foco Mental</div>
+          <div class="chip" onclick="this.classList.toggle('selected')">Bienestar general</div>
         </div>
       </div>
       <button class="btn-primary" onclick="goToStep(3)">Continuar</button>
@@ -144,6 +149,7 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
     <div id="step-3" class="form-block" style="display:none;">
       <h2>Dieta y Restricciones</h2>
       <div class="field">
+        <label>Restricciones Alimenticias</label>
         <div class="chip-group" id="diet">
           <div class="chip" onclick="this.classList.toggle('selected')">Vegano</div>
           <div class="chip" onclick="this.classList.toggle('selected')">Vegetariano</div>
@@ -152,37 +158,39 @@ input, select, textarea { width: 100%; padding: 14px; border: 0.5px solid var(--
           <div class="chip" onclick="this.classList.toggle('selected')">Ninguna</div>
         </div>
       </div>
-      <button class="btn-primary" onclick="generarCarnet()">Finalizar Diagnóstico</button>
+      <div class="field"><label>Notas adicionales</label><textarea id="extra" placeholder="Ej: lesiones, sensibilidad a la cafeína..."></textarea></div>
+      <button class="btn-primary" onclick="generarCarnet()">Finalizar Perfil</button>
     </div>
   </div>
 </div>
 
 <div id="carnet-screen" class="screen">
-  <div style="background:var(--brown); min-height:100vh; padding:60px 24px; text-align:center;">
+  <div style="background:var(--brown); min-height:100vh; padding:70px 24px; text-align:center;">
     <div class="big-card">
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="brand" style="color:var(--gold-light); font-size:22px;">club<strong>aurum</strong></div>
-        <div style="font-size:10px; border:1px solid; padding:5px 15px; border-radius:100px; color:var(--gold);">MEMBER</div>
+        <div class="brand" style="color:var(--gold-light); font-size:26px;">club<strong>.aurum</strong></div>
+        <div style="font-size:10px; border:1px solid; padding:6px 16px; border-radius:100px; color:var(--gold); font-weight:600;">MEMBER</div>
       </div>
-      <div style="display:flex; align-items:center; gap:25px; margin:45px 0;">
-        <div id="final-avatar" style="width:85px; height:85px; border-radius:50%; border:2.5px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:30px;">A</div>
-        <div>
-          <div id="final-name" style="font-size:28px; color:var(--gold-light); text-transform:lowercase; font-weight:400;"></div>
-          <div id="final-bio" style="font-size:13px; color:rgba(196,160,103,0.5); margin-top:8px; font-weight:400;"></div>
+      <div style="display:flex; align-items:center; gap:25px; margin:50px 0;">
+        <div id="final-avatar" style="width:90px; height:90px; border-radius:50%; border:2.5px solid var(--gold); overflow:hidden; background:#4A2E1A; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:32px;">A</div>
+        <div style="text-align:left;">
+          <div id="final-name" style="font-size:30px; color:var(--gold-light); text-transform:lowercase; font-weight:400;"></div>
+          <div id="final-bio" style="font-size:14px; color:rgba(196,160,103,0.6); margin-top:10px; font-weight:400;"></div>
         </div>
       </div>
-      <div style="height:0.5px; background:rgba(196,160,103,0.15); margin-bottom:25px;"></div>
-      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; opacity:0.3; color:var(--gold-light);">
-        <span>AUR-00001</span><span>SOLO LO ESENCIAL [cite: 4]</span>
+      <div style="height:1px; background:rgba(196,160,103,0.15); margin-bottom:30px;"></div>
+      <div style="display:flex; justify-content:space-between; font-family:monospace; font-size:11px; opacity:0.4; color:var(--gold-light); letter-spacing:1px;">
+        <span>AUR-00001</span><span>SOLO LO ESENCIAL</span>
       </div>
     </div>
 
     <div class="rec-card">
-      <h3 style="color:var(--gold-light); font-size:24px; margin-bottom:25px; font-weight:500; letter-spacing:-0.02em;">Protocolo Biológico</h3>
-      <div id="rec-text" style="font-size:15px; line-height:1.8; opacity:0.8; font-weight:300;"></div>
+      <h3 style="color:var(--gold-light); font-size:24px; margin-bottom:25px; font-weight:500; letter-spacing:-0.02em;">Protocolo de Suplementación</h3>
+      <div id="rec-text" style="font-size:15px; line-height:1.9; opacity:0.8; font-weight:300;"></div>
       <a href="https://www.aurumarg.com" target="_blank" class="btn-shop">Adquirir mi rutina esencial →</a>
     </div>
-    <button onclick="location.reload()" style="margin-top:40px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:13px;">Nuevo Perfil</button>
+    
+    <button onclick="location.reload()" style="margin-top:50px; background:none; border:none; color:var(--gold); text-decoration:underline; cursor:pointer; font-size:14px;">Reiniciar Diagnóstico</button>
   </div>
 </div>
 
@@ -213,30 +221,38 @@ function goToStep(n) {
     const step = document.getElementById('step-'+i);
     if(step) step.style.display = (i===n)?'block':'none';
   });
+  window.scrollTo(0,0);
 }
 
 function generarCarnet() {
   const nombre = document.getElementById('nombre').value || "Miembro";
+  const apellido = document.getElementById('apellido').value || "";
   const deporte = document.getElementById('deporte').value || "Atleta";
   const objetivos = Array.from(document.getElementById('goals').querySelectorAll('.chip.selected')).map(c => c.innerText);
   
   showScreen('carnet-screen');
-  document.getElementById('final-name').innerText = nombre;
-  document.getElementById('final-bio').innerText = `${deporte} · ${document.getElementById('edad').value} años · ${document.getElementById('peso').value}kg`;
-  if(state.photo) document.getElementById('final-avatar').innerHTML = `<img src="${state.photo}" style="width:100%; height:100%; object-fit:cover;">`;
+  document.getElementById('final-name').innerText = nombre + " " + apellido;
+  document.getElementById('final-bio').innerText = `${deporte} · ${document.getElementById('edad').value || '--'} años · ${document.getElementById('peso').value || '--'}kg`;
+  
+  if(state.photo) {
+    document.getElementById('final-avatar').innerHTML = `<img src="${state.photo}" style="width:100%; height:100%; object-fit:cover;">`;
+  } else {
+    document.getElementById('final-avatar').innerText = nombre[0].toUpperCase();
+  }
 
-  let protocolo = `Hola <strong>${nombre}</strong>. Basados en tus parámetros técnicos, diseñamos este protocolo biológico enfocado en la biodisponibilidad molecular:<br><br>`;
+  // RECOMENDACIÓN TÉCNICA SIN ETIQUETAS DE CITA
+  let protocolo = `Hola <strong>${nombre}</strong>. Basados en tus parámetros de ${deporte}, diseñamos este protocolo biológico enfocado en la pureza y biodisponibilidad de nutrientes:<br><br>`;
   
   if(objetivos.some(o => o.includes('músculo') || o.includes('Rendir'))) {
-    protocolo += `• <strong>Natural Protein Blend:</strong> Maximiza la síntesis proteica miofibrilar mediante una absorción limpia sin interferencia de aditivos artificiales[cite: 6, 9].<br>
-                  • <strong>Creatine Monohydrate:</strong> Optimiza la resíntesis de ATP celular para incrementar el umbral de potencia mecánica[cite: 17].<br>
-                  • <strong>Hydration Complex:</strong> Restablece el equilibrio osmótico intra y extracelular durante el esfuerzo intenso[cite: 26].`;
+    protocolo += `• <strong>Natural Protein Blend:</strong> Máximo impacto en la síntesis proteica miofibrilar para una recuperación de tejido limpia y efectiva.<br>
+                  • <strong>Creatine Monohydrate:</strong> Optimización de la resíntesis de ATP celular para incrementar la potencia mecánica y fuerza explosiva.<br>
+                  • <strong>Hydration Complex:</strong> Restauración del equilibrio electrolítico intra y extracelular sin aditivos ni químicos innecesarios.`;
   } else {
-    protocolo += `• <strong>Greens & Superfoods:</strong> Aporta una densidad crítica de micronutrientes para estabilizar funciones metabólicas diarias[cite: 20].<br>
-                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento integral de la infraestructura biológica saludable[cite: 5, 13].`;
+    protocolo += `• <strong>Greens & Superfoods:</strong> Aporta una densidad crítica de micronutrientes para estabilizar funciones metabólicas y energía sostenida.<br>
+                  • <strong>Plant-based Protein:</strong> Estructura de aminoácidos pura para el mantenimiento de tu infraestructura biológica diaria.`;
   }
   
-  document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial[cite: 3, 4].</em>`;
+  document.getElementById('rec-text').innerHTML = protocolo + `<br><br><em>Propósito Aurum: Inspirar a descubrir el potencial oculto mediante solo lo esencial.</em>`;
 }
 </script>
 </body>
