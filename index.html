@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --sand: #F5F0E8; --brown: #2E1F14; --gold: #C4A067; --gold-light: #E8D4A8; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--brown); margin: 0; padding: 20px; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; }
+        #app { width: 100%; max-width: 450px; text-align: center; }
+        .screen { display: none; opacity: 0; transition: opacity 0.5s ease; }
+        .active { display: block; opacity: 1; }
+        .card { background: var(--brown); color: var(--gold-light); border-radius: 20px; padding: 40px 30px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.25); margin: 30px 0; position: relative; overflow: hidden; }
+        .btn { width: 100%; padding: 20px; background: var(--brown); color: var(--gold-light); border: none; border-radius: 100px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; transition: 0.3s; }
+        input, select { width: 100%; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(46,31,20,0.1); border-radius: 12px; font-size: 16px; box-sizing: border-box; background: white; outline: none; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="s1" class="screen active">
+            <h1 style="font-size: 42px; font-weight: 300; margin-bottom: 10px; letter-spacing: -2px;">club.aurum.</h1>
+            <p style="opacity: 0.6; font-size: 15px; margin-bottom: 40px;">Membresía y rutina de élite.</p>
+            <div class="card">
+                <div style="font-size: 9px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 30px;">MEMBER CARD</div>
+                <div style="font-size: 24px; font-weight: 300;">Tu nombre aquí</div>
+                <div style="margin-top:50px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px; opacity: 0.4;">
+                    <span>AURUM · 2026</span>
+                    <span>PRO LEVEL</span>
+                </div>
+            </div>
+            <button class="btn" onclick="go(2)">Unirme al club</button>
+        </div>
+        <div id="s2" class="screen">
+            <h2 style="font-weight: 400; margin-bottom: 30px;">Personalizá tu carnet</h2>
+            <input type="text" id="userName" placeholder="Nombre completo">
+            <select id="userGoal">
+                <option>Rendimiento</option>
+                <option>Recuperación</option>
+                <option>Foco Mental</option>
+            </select>
+            <button class="btn" onclick="finish()">Generar Rutina</button>
+        </div>
+        <div id="s3" class="screen">
+            <h2 style="font-weight: 400; margin-bottom: 30px;">Bienvenido al Club</h2>
+            <div id="finalCard"></div>
+            <div style="background:white; padding:30px; border-radius:20px; text-align:left; border:1px solid rgba(0,0,0,0.03); margin-top:20px;">
+                <div id="routine" style="font-size: 14px; line-height: 1.7; color: #4A3324;"></div>
+            </div>
+            <button class="btn" style="margin-top:30px; background:none; border:1px solid var(--brown); color:var(--brown);" onclick="location.reload()">Reiniciar</button>
+        </div>
+    </div>
+    <script>
+        const go = (n) => {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            setTimeout(() => {
+                document.querySelectorAll('.screen').forEach(s => s.style.display = 'none');
+                const next = document.getElementById('s' + n);
+                next.style.display = 'block';
+                setTimeout(() => next.classList.add('active'), 50);
+            }, 300);
+        };
+        const finish = () => {
+            const name = document.getElementById('userName').value || 'Miembro';
+            const goal = document.getElementById('userGoal').value;
+            go(3);
+            document.getElementById('finalCard').innerHTML = `<div class="card"><div style="font-size: 9px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 20px;">OFFICIAL MEMBER</div><div style="font-size: 26px; font-weight: 300; text-transform: lowercase;">${name}</div><div style="margin-top:40px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px;"><span style="opacity: 0.3;">ID: AUR-${Math.floor(Math.random()*9000+1000)}</span><span style="color:var(--gold)">${goal.toUpperCase()}</span></div></div>`;
+            setTimeout(() => {
+                document.getElementById('routine').innerHTML = `<strong>Aliado Silencioso para ${name.split(' ')[0]}:</strong><br><br>Basado en tu objetivo de <em>${goal}</em>, la infraestructura biológica sugerida es <strong>Magnesio Aurum</strong> y <strong>Omega-3</strong>. El craft biológico es la base del rendimiento.`;
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
