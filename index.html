@@ -8,20 +8,20 @@
         :root { --sand: #F5F0E8; --brown: #2E1F14; --gold: #C4A067; --gold-light: #E8D4A8; }
         body { font-family: 'DM Sans', sans-serif; background: var(--sand); color: var(--brown); margin: 0; padding: 20px; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; }
         #app { width: 100%; max-width: 450px; text-align: center; }
-        .screen { display: none; opacity: 0; transition: opacity 0.5s ease; }
-        .active { display: block; opacity: 1; }
+        .screen { display: none; opacity: 1; } /* Simplificado para evitar bloqueos */
+        .active { display: block; }
         
-        /* Estética Aurum: Solo lo esencial */
         .card { 
-            background: var(--brown); color: var(--gold-light); border-radius: 20px; 
+            background: var(--brown); color: var(--gold-light); border-radius: 24px; 
             padding: 40px 30px; text-align: left; box-shadow: 0 20px 50px rgba(0,0,0,0.25); 
             margin: 30px 0; position: relative; overflow: hidden;
         }
         .btn { 
             width: 100%; padding: 20px; background: var(--brown); color: var(--gold-light); 
             border: none; border-radius: 100px; font-weight: 600; cursor: pointer; 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 11px; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 11px; transition: 0.2s;
         }
+        .btn:active { transform: scale(0.98); }
         input, select, textarea { 
             width: 100%; padding: 16px; margin-bottom: 20px; border: 1px solid rgba(46,31,20,0.1); 
             border-radius: 12px; font-size: 16px; box-sizing: border-box; background: white; outline: none; font-family: inherit;
@@ -40,7 +40,7 @@
             <div style="font-size: 24px; font-weight: 300;">Tu nombre aquí</div>
             <div style="margin-top:50px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px; opacity: 0.4;">
                 <span>AURUM · 2026</span>
-                <span>ONLY ESSENTIALS</span>
+                <span style="letter-spacing: 1px;">SOLO LO ESENCIAL</span>
             </div>
         </div>
         <button class="btn" onclick="go(2)">Empezar Perfil</button>
@@ -57,7 +57,7 @@
             <option value="Estilo de vida saludable">Bienestar y Salud</option>
         </select>
         <span class="label">Actividad Física</span>
-        <input type="text" id="userSport" placeholder="Ej: CrossFit, Yoga, Running">
+        <input type="text" id="userSport" placeholder="Ej: CrossFit, Running, Yoga">
         <button class="btn" onclick="finish()">Generar Rutina Aurum</button>
     </div>
 
@@ -72,26 +72,18 @@
 </div>
 
 <script>
-    // CATÁLOGO OFICIAL BASADO EN PRESENTACIÓN DE MARCA
-    const CATALOGO_AURUM = `
-    PRODUCTOS:
-    - Natural Protein Blend (Chocolate/Vainilla): Alta calidad, post-entrenamiento[cite: 9, 13].
-    - Plant-based Protein (Chocolate/Vainilla): Proteína vegetal pura[cite: 14, 15].
-    - Creatine Monohydrate (Natural): 100% pura para fuerza y potencia[cite: 17, 18].
-    - Greens & Superfoods (Frutos Rojos/Citricor): Nutrientes esenciales diarios[cite: 20, 21, 24].
-    - Hydration Complex (Frambuesa/Maracuyá): Electrolitos sin aditivos artificiales[cite: 26, 27, 30].
-    MISIÓN: Educar e inspirar a descubrir el potencial oculto con solo lo esencial[cite: 3, 4].
-    `;
-
-    const go = (n) => {
-        document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-        setTimeout(() => {
-            document.querySelectorAll('.screen').forEach(s => s.style.display = 'none');
-            const next = document.getElementById('s' + n);
+    // Navegación Blindada para iFrame
+    function go(n) {
+        document.querySelectorAll('.screen').forEach(s => {
+            s.classList.remove('active');
+            s.style.display = 'none';
+        });
+        const next = document.getElementById('s' + n);
+        if (next) {
             next.style.display = 'block';
-            setTimeout(() => next.classList.add('active'), 50);
-        }, 300);
-    };
+            next.classList.add('active');
+        }
+    }
 
     const finish = () => {
         const name = document.getElementById('userName').value || 'Miembro';
@@ -99,34 +91,32 @@
         const sport = document.getElementById('userSport').value || 'Vida Activa';
         go(3);
         
-        // Renderizado del Carnet
-        document.getElementById('finalCard').innerHTML = \`
+        document.getElementById('finalCard').innerHTML = `
             <div class="card">
                 <div style="font-size: 9px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 20px;">OFFICIAL MEMBER</div>
-                <div style="font-size: 26px; font-weight: 300; text-transform: lowercase;">\${name}</div>
+                <div style="font-size: 26px; font-weight: 300; text-transform: lowercase;">${name}</div>
                 <div style="margin-top:40px; display: flex; justify-content: space-between; font-family: monospace; font-size: 10px;">
-                    <span style="opacity: 0.3;">ID: AUR-\${Math.floor(Math.random()*9000+1000)}</span>
-                    <span style="color:var(--gold)">\${sport.toUpperCase()}</span>
+                    <span style="opacity: 0.3;">ID: AUR-${Math.floor(Math.random()*9000+1000)}</span>
+                    <span style="color:var(--gold)">SOLO LO ESENCIAL</span>
                 </div>
             </div>
-        \`;
+        `;
 
-        // Simulación de recomendación basada en el catálogo 
         setTimeout(() => {
             let recomendacion = "";
             if (goal.includes("Potenciar")) {
-                recomendacion = \`<strong>Estrategia de Rendimiento para \${name.split(' ')[0]}:</strong><br><br>
-                • <strong>Creatine Monohydrate:</strong> Esencial para potenciar tu fuerza en \${sport}[cite: 17].<br>
-                • <strong>Natural Protein Blend:</strong> Recuperación limpia después de cada sesión[cite: 11].<br>
-                • <strong>Hydration Complex:</strong> Mantené la pureza de tu hidratación durante el esfuerzo[cite: 26].\`;
+                recomendacion = `<strong>Estrategia de Rendimiento para ${name.split(' ')[0]}:</strong><br><br>
+                • <strong>Creatine Monohydrate:</strong> Esencial para potenciar tu fuerza y descubrir tu potencial oculto[cite: 3, 17].<br>
+                • <strong>Natural Protein Blend (Chocolate):</strong> Recuperación limpia preservando solo lo que tiene mayor impacto nutritivo[cite: 6, 9].<br>
+                • <strong>Hydration Complex (Maracuyá):</strong> Mantené la pureza de tu hidratación con fórmulas que priorizan lo esencial[cite: 5, 26, 30].`;
             } else {
-                recomendacion = \`<strong>Estrategia de Bienestar para \${name.split(' ')[0]}:</strong><br><br>
-                • <strong>Greens & Superfoods:</strong> Nutrición esencial para descubrir tu potencial diario[cite: 20].<br>
-                • <strong>Plant-based Protein:</strong> Proteína limpia para potenciar cuerpo y mente con simplicidad[cite: 12].<br>
-                • <strong>Hydration Complex:</strong> Hidratación inteligente para tu estilo de vida saludable[cite: 29].\`;
+                recomendacion = `<strong>Estrategia de Bienestar para ${name.split(' ')[0]}:</strong><br><br>
+                • <strong>Greens & Superfoods:</strong> Nutrición esencial para inspirarte a adoptar un estilo de vida más saludable[cite: 3, 20].<br>
+                • <strong>Plant-based Protein (Vainilla):</strong> Proteína limpia y efectiva para quienes buscan simplicidad[cite: 5, 13].<br>
+                • <strong>Hydration Complex:</strong> Hidratación inteligente para potenciar el cuerpo y la mente[cite: 3, 26].`;
             }
             document.getElementById('routine').innerHTML = recomendacion + "<br><br><em>Solo lo esencial para tu impacto nutritivo.</em>";
-        }, 1000);
+        }, 300);
     };
 </script>
 </body>
